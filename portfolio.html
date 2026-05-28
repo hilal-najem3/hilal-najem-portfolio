@@ -84,748 +84,7 @@
         ]
       }
     </script>
-
-    <style>
-      :root {
-        --bg-primary: #050816;
-        --bg-secondary: #0b1120;
-        --surface: rgba(255, 255, 255, 0.06);
-        --surface-border: rgba(255, 255, 255, 0.12);
-        --text-primary: #f8fafc;
-        --text-secondary: #cbd5e1;
-        --accent: #8b5cf6;
-        --accent-2: #06b6d4;
-        --accent-3: #3b82f6;
-        --success: #10b981;
-        --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-        --radius: 24px;
-        --transition: all 0.35s ease;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-        overflow-x: hidden;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background:
-          radial-gradient(
-            circle at top left,
-            rgba(139, 92, 246, 0.2),
-            transparent 30%
-          ),
-          radial-gradient(
-            circle at bottom right,
-            rgba(6, 182, 212, 0.2),
-            transparent 30%
-          ),
-          var(--bg-primary);
-        color: var(--text-primary);
-        overflow-x: hidden;
-        line-height: 1.7;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        background-size: 60px 60px;
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      .navbar {
-        backdrop-filter: blur(20px);
-        background: rgba(5, 8, 22, 0.78);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        padding: 1rem 0;
-        transition: var(--transition);
-      }
-
-      .navbar-brand {
-        font-weight: 800;
-        letter-spacing: -0.04em;
-        font-size: 1.3rem;
-        color: white !important;
-      }
-
-      .brand-gradient {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .nav-link {
-        color: rgba(255, 255, 255, 0.78) !important;
-        font-weight: 500;
-        position: relative;
-        transition: var(--transition);
-      }
-
-      .nav-link:hover {
-        color: white !important;
-      }
-
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        position: relative;
-        padding-top: 100px;
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 18px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(20px);
-        margin-bottom: 24px;
-        color: var(--text-secondary);
-        font-size: 0.95rem;
-      }
-
-      .hero-title {
-        font-size: clamp(3.5rem, 8vw, 6rem);
-        font-weight: 900;
-        line-height: 0.95;
-        letter-spacing: -0.06em;
-        margin-bottom: 1rem;
-      }
-
-      .hero-subtitle {
-        font-size: clamp(1.2rem, 2vw, 1.7rem);
-        color: var(--text-secondary);
-        font-weight: 500;
-        line-height: 1.5;
-        margin-bottom: 2rem;
-        max-width: 700px;
-      }
-
-      .pulse-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--success);
-        animation: pulse 1.5s infinite;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: scale(1.5);
-          opacity: 0.5;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      .hero h1 {
-        font-size: clamp(3rem, 8vw, 6rem);
-        font-weight: 900;
-        line-height: 1.05;
-        letter-spacing: -0.06em;
-        margin-bottom: 1.5rem;
-      }
-
-      .gradient-text {
-        background: linear-gradient(135deg, #ffffff, #9ca3af);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .gradient-accent {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .hero-description {
-        color: var(--text-secondary);
-        font-size: 1.15rem;
-        max-width: 720px;
-        margin-bottom: 2rem;
-      }
-
-      .typing {
-        color: var(--accent-2);
-        font-weight: 700;
-      }
-
-      .hero-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .btn-primary-custom {
-        border: none;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: white;
-        padding: 15px 26px;
-        border-radius: 16px;
-        font-weight: 700;
-        transition: var(--transition);
-        box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
-      }
-
-      .btn-primary-custom:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 18px 35px rgba(139, 92, 246, 0.4);
-      }
-
-      .btn-secondary-custom {
-        background: rgba(255, 255, 255, 0.08);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 15px 26px;
-        border-radius: 16px;
-        font-weight: 700;
-        backdrop-filter: blur(20px);
-        transition: var(--transition);
-      }
-
-      .btn-secondary-custom:hover {
-        background: rgba(255, 255, 255, 0.12);
-        transform: translateY(-4px);
-      }
-
-      .glass-card {
-        background: var(--surface);
-        border: 1px solid var(--surface-border);
-        backdrop-filter: blur(20px);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-      }
-
-      .hero-card {
-        padding: 2.5rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero-card::before {
-        content: "";
-        position: absolute;
-        width: 220px;
-        height: 220px;
-        background: radial-gradient(
-          circle,
-          rgba(139, 92, 246, 0.4),
-          transparent 70%
-        );
-        top: -80px;
-        right: -80px;
-      }
-
-      .metric {
-        padding: 1rem;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.04);
-        text-align: center;
-        min-height: 110px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .metric h3 {
-        font-size: 2rem;
-        font-weight: 800;
-      }
-
-      .section {
-        padding: 120px 0;
-      }
-
-      .section-title {
-        font-size: clamp(2rem, 5vw, 4rem);
-        font-weight: 900;
-        letter-spacing: -0.05em;
-        margin-bottom: 1rem;
-      }
-
-      .section-subtitle {
-        color: var(--text-secondary);
-        max-width: 720px;
-        margin: 0 auto 4rem;
-      }
-
-      .skill-card {
-        padding: 2rem;
-        height: 100%;
-        transition: var(--transition);
-      }
-
-      .skill-card:hover {
-        transform: translateY(-8px);
-        border-color: rgba(139, 92, 246, 0.5);
-      }
-
-      .skill-icon {
-        width: 64px;
-        height: 64px;
-        border-radius: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(
-          135deg,
-          rgba(139, 92, 246, 0.2),
-          rgba(6, 182, 212, 0.2)
-        );
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .project-card {
-        overflow: hidden;
-        position: relative;
-        height: 100%;
-        transition: var(--transition);
-      }
-
-      .project-card:hover {
-        transform: translateY(-10px);
-        border-color: rgba(139, 92, 246, 0.5);
-      }
-
-      .project-image {
-        height: 260px;
-        object-fit: cover;
-        width: 100%;
-      }
-
-      .project-content {
-        padding: 2rem;
-      }
-
-      .project-title {
-        font-size: 1.6rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-      }
-
-      .project-description {
-        color: var(--text-secondary);
-        margin-bottom: 1.5rem;
-      }
-
-      .tech-badge {
-        display: inline-block;
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.08);
-        color: white;
-        font-size: 0.85rem;
-        margin: 0.3rem;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .page-list {
-        list-style: none;
-        padding-left: 0;
-        margin-top: 1rem;
-      }
-
-      .page-list li {
-        margin-bottom: 0.75rem;
-        color: var(--text-secondary);
-      }
-
-      .page-list strong {
-        color: white;
-      }
-
-      .project-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .filter-btn {
-        padding: 12px 20px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.05);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition: var(--transition);
-        cursor: pointer;
-      }
-
-      .filter-btn.active,
-      .filter-btn:hover {
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        border-color: transparent;
-      }
-
-      .doctrine-box {
-        padding: 2rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .doctrine-box::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(139, 92, 246, 0.08),
-          rgba(6, 182, 212, 0.08)
-        );
-        pointer-events: none;
-      }
-
-      .quote {
-        font-size: 1.4rem;
-        font-weight: 700;
-        line-height: 1.5;
-      }
-
-      .contact-card {
-        padding: 2rem;
-        height: 100%;
-        transition: var(--transition);
-      }
-
-      .contact-card:hover {
-        transform: translateY(-6px);
-      }
-
-      .contact-link {
-        color: white;
-        text-decoration: none;
-        transition: var(--transition);
-      }
-
-      .contact-link:hover {
-        color: var(--accent-2);
-      }
-
-      .copy-btn {
-        margin-top: 1rem;
-      }
-
-      footer {
-        padding: 3rem 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--text-secondary);
-      }
-
-      .back-to-top {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        width: 54px;
-        height: 54px;
-        border-radius: 50%;
-        border: none;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-        z-index: 999;
-        box-shadow: var(--shadow);
-      }
-
-      .back-to-top.show {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .fade-up {
-        opacity: 0;
-        transform: translateY(30px);
-        transition:
-          opacity 0.8s ease,
-          transform 0.8s ease;
-      }
-
-      .fade-up.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .toast-container-custom {
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        z-index: 9999;
-      }
-
-      .custom-toast {
-        padding: 16px 20px;
-        border-radius: 18px;
-        background: rgba(15, 23, 42, 0.95);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: var(--shadow);
-        margin-bottom: 10px;
-        animation: slideIn 0.4s ease;
-      }
-
-      @keyframes slideIn {
-        from {
-          transform: translateX(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 991px) {
-        .hero {
-          text-align: center;
-        }
-
-        .hero-buttons {
-          justify-content: center;
-        }
-
-        .hero-card {
-          margin-top: 3rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .section {
-          padding: 90px 0;
-        }
-
-        .project-content,
-        .skill-card,
-        .contact-card,
-        .hero-card {
-          padding: 1.5rem;
-        }
-      }
-
-      .website-preview-wrapper {
-        perspective: 1600px;
-        position: relative;
-      }
-
-      .browser-frame {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 24px;
-        overflow: hidden;
-
-        backdrop-filter: blur(20px);
-
-        box-shadow:
-          0 20px 60px rgba(0, 0, 0, 0.45),
-          0 0 0 1px rgba(255, 255, 255, 0.04);
-
-        transform: rotateX(6deg) rotateY(-6deg);
-
-        transition:
-          transform 0.5s ease,
-          box-shadow 0.5s ease;
-      }
-
-      .browser-frame:hover {
-        transform: rotateX(0deg) rotateY(0deg) translateY(-10px);
-
-        box-shadow:
-          0 35px 80px rgba(0, 0, 0, 0.55),
-          0 0 40px rgba(139, 92, 246, 0.2);
-      }
-
-      .browser-topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        padding: 14px 18px;
-
-        background: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0.08),
-          rgba(255, 255, 255, 0.03)
-        );
-
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .browser-dots {
-        display: flex;
-        gap: 8px;
-      }
-
-      .browser-dots span {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-      }
-
-      .browser-dots span:nth-child(1) {
-        background: #ff5f57;
-      }
-
-      .browser-dots span:nth-child(2) {
-        background: #febc2e;
-      }
-
-      .browser-dots span:nth-child(3) {
-        background: #28c840;
-      }
-
-      .browser-url {
-        color: rgba(255, 255, 255, 0.65);
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-
-      .website-preview-container {
-        height: 520px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .website-preview-image {
-        width: 100%;
-        display: block;
-
-        transition: transform 8s ease;
-      }
-
-      .browser-frame:hover .website-preview-image {
-        transform: translateY(-65%);
-      }
-
-      /* Website preview */
-      .website-preview-wrapper {
-        position: relative;
-      }
-
-      .browser-frame {
-        background: rgba(255, 255, 255, 0.06);
-
-        border: 1px solid rgba(255, 255, 255, 0.08);
-
-        border-radius: 24px;
-
-        overflow: hidden;
-
-        backdrop-filter: blur(20px);
-
-        box-shadow:
-          0 20px 60px rgba(0, 0, 0, 0.45),
-          0 0 0 1px rgba(255, 255, 255, 0.04);
-
-        transition:
-          transform 0.45s ease,
-          box-shadow 0.45s ease;
-      }
-
-      .browser-frame:hover {
-        transform: translateY(-10px);
-
-        box-shadow:
-          0 35px 80px rgba(0, 0, 0, 0.55),
-          0 0 40px rgba(139, 92, 246, 0.18);
-      }
-
-      .browser-topbar {
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-
-        padding: 14px 18px;
-
-        background: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0.08),
-          rgba(255, 255, 255, 0.03)
-        );
-
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .browser-dots {
-        display: flex;
-        gap: 8px;
-      }
-
-      .browser-dots span {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-      }
-
-      .browser-dots span:nth-child(1) {
-        background: #ff5f57;
-      }
-
-      .browser-dots span:nth-child(2) {
-        background: #febc2e;
-      }
-
-      .browser-dots span:nth-child(3) {
-        background: #28c840;
-      }
-
-      .browser-url {
-        color: rgba(255, 255, 255, 0.65);
-
-        font-size: 0.9rem;
-
-        font-weight: 500;
-      }
-
-      .website-preview-container {
-        height: 520px;
-
-        overflow: hidden;
-
-        position: relative;
-      }
-
-      .website-preview-image {
-        width: 100%;
-
-        display: block;
-
-        transform: translateY(0);
-
-        transition: transform 10s ease;
-      }
-
-      .browser-frame:hover .website-preview-image {
-        transform: translateY(calc(-100% + 520px));
-      }
-    </style>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -1157,74 +416,6 @@
                     <span class="tech-badge">Structured Content</span>
                   </div>
 
-                  <div class="glass-card p-4 mb-4">
-                    <h4 class="h6 fw-bold mb-3 gradient-accent">
-                      Key Features
-                    </h4>
-
-                    <div class="row g-3">
-                      <div class="col-sm-6">
-                        <div class="metric h-100">
-                          <h3 class="gradient-accent">Luxury UI</h3>
-
-                          <p class="mb-0 text-secondary">
-                            Premium visual presentation focused on handcrafted
-                            sweets and brand identity.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="col-sm-6">
-                        <div class="metric h-100">
-                          <h3 class="gradient-accent">Storytelling</h3>
-
-                          <p class="mb-0 text-secondary">
-                            Historical timeline section showcasing brand
-                            evolution since 1954.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <h4 class="h6 fw-bold mb-3">Main Pages & Purpose</h4>
-
-                  <ul class="page-list">
-                    <li>
-                      <strong>Homepage:</strong>
-                      Elegant hero presentation introducing the brand,
-                      handcrafted sweets, and customer experience.
-                    </li>
-
-                    <li>
-                      <strong>About:</strong>
-                      Interactive historical timeline presenting the company’s
-                      growth and legacy.
-                    </li>
-
-                    <li>
-                      <strong>Menu:</strong>
-                      Structured categories for sweets, cakes, chocolate, and
-                      special occasions.
-                    </li>
-
-                    <li>
-                      <strong>Gift Boxes:</strong>
-                      Product-focused sections designed for gifting and premium
-                      presentation.
-                    </li>
-
-                    <li>
-                      <strong>Testimonials:</strong>
-                      Social proof and customer trust integration.
-                    </li>
-
-                    <li>
-                      <strong>Contact:</strong>
-                      Optimized communication and branch accessibility.
-                    </li>
-                  </ul>
-
                   <div class="project-links">
                     <a
                       href="https://ittihad.co"
@@ -1234,6 +425,13 @@
                     >
                       Visit Live Website
                     </a>
+
+                    <button
+                      class="btn btn-secondary-custom"
+                      onclick="openProjectModal(projects.ittihad)"
+                    >
+                      View Case Study
+                    </button>
                   </div>
                 </div>
               </article>
@@ -1295,82 +493,6 @@
                     <span class="tech-badge">Single-Page Experience</span>
                   </div>
 
-                  <div class="glass-card p-4 mb-4">
-                    <h4 class="h6 fw-bold mb-3 gradient-accent">
-                      Key Features
-                    </h4>
-
-                    <div class="row g-3">
-                      <div class="col-sm-6">
-                        <div class="metric h-100">
-                          <h3 class="gradient-accent">Procurement Identity</h3>
-
-                          <p class="mb-0 text-secondary">
-                            Corporate positioning focused on sourcing,
-                            procurement strategy, and hospitality operations.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="col-sm-6">
-                        <div class="metric h-100">
-                          <h3 class="gradient-accent">Structured Flow</h3>
-
-                          <p class="mb-0 text-secondary">
-                            Single-page navigation architecture optimized for
-                            clarity, readability, and smooth interaction.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <h4 class="h6 fw-bold mb-3">Website Sections & Purpose</h4>
-
-                  <ul class="page-list">
-                    <li>
-                      <strong>Hero Section:</strong>
-                      Large-scale corporate introduction presenting Horecamak’s
-                      procurement vision and hospitality-sector positioning.
-                    </li>
-
-                    <li>
-                      <strong>Who We Are:</strong>
-                      Introduces the company as a procurement and trading agency
-                      specialized in hospitality and service industries.
-                    </li>
-
-                    <li>
-                      <strong>Mission & Values:</strong>
-                      Highlights operational efficiency, ethical sourcing,
-                      scalability, and long-term partnership philosophy.
-                    </li>
-
-                    <li>
-                      <strong>Why Choose Us:</strong>
-                      Structured advantages section presenting expertise, cost
-                      efficiency, global reach, and strategic procurement focus.
-                    </li>
-
-                    <li>
-                      <strong>Service Solutions:</strong>
-                      Procurement outsourcing, supplier management, strategic
-                      sourcing, and global market access systems.
-                    </li>
-
-                    <li>
-                      <strong>Advantages:</strong>
-                      Business-focused presentation emphasizing expertise,
-                      operational efficiency, scalability, and flexibility.
-                    </li>
-
-                    <li>
-                      <strong>Contact Section:</strong>
-                      Optimized B2B communication flow for procurement
-                      discussions and commercial partnerships.
-                    </li>
-                  </ul>
-
                   <div class="project-links">
                     <a
                       href="https://horecamak.ae"
@@ -1380,6 +502,13 @@
                     >
                       Visit Live Website
                     </a>
+
+                    <button
+                      class="btn btn-secondary-custom"
+                      onclick="openProjectModal(projects.horecamak)"
+                    >
+                      View Case Study
+                    </button>
                   </div>
                 </div>
               </article>
@@ -1447,80 +576,6 @@
                     <span class="tech-badge">Multi-Page Platform</span>
                   </div>
 
-                  <div class="glass-card p-4 mb-4">
-                    <h4 class="h6 fw-bold mb-3 gradient-accent">
-                      Key Features
-                    </h4>
-
-                    <div class="row g-3">
-                      <div class="col-sm-6">
-                        <div class="metric h-100">
-                          <h3 class="gradient-accent">Dynamic CMS</h3>
-
-                          <p class="mb-0 text-secondary">
-                            Editor-access administration system for managing
-                            news, events, and community content.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="col-sm-6">
-                        <div class="metric h-100">
-                          <h3 class="gradient-accent">Community Platform</h3>
-
-                          <p class="mb-0 text-secondary">
-                            Structured organization-focused experience
-                            supporting outreach and engagement initiatives.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <h4 class="h6 fw-bold mb-3">Main Pages & Purpose</h4>
-
-                  <ul class="page-list">
-                    <li>
-                      <strong>Homepage:</strong>
-                      Community-focused landing page presenting the
-                      organization’s identity, mission, initiatives, and
-                      cultural vision.
-                    </li>
-
-                    <li>
-                      <strong>About Page:</strong>
-                      Dedicated organizational page introducing the Cultural
-                      Society’s heritage, objectives, and long-term community
-                      role.
-                    </li>
-
-                    <li>
-                      <strong>News Page:</strong>
-                      Dynamic Laravel-powered news platform allowing
-                      administrators and editors to publish announcements,
-                      updates, and community articles through a structured CRUD
-                      system.
-                    </li>
-
-                    <li>
-                      <strong>Events Page:</strong>
-                      Event management and publishing system designed for
-                      cultural activities, gatherings, and community programs.
-                    </li>
-
-                    <li>
-                      <strong>Board Page:</strong>
-                      Separate leadership presentation page providing
-                      organizational transparency and board member visibility.
-                    </li>
-
-                    <li>
-                      <strong>Contact Page:</strong>
-                      Responsive communication interface optimized for community
-                      engagement and organizational accessibility.
-                    </li>
-                  </ul>
-
                   <div class="project-links">
                     <a
                       href="https://aleyanddistricts.org/"
@@ -1530,6 +585,13 @@
                     >
                       Visit Live Website
                     </a>
+
+                    <button
+                      class="btn btn-secondary-custom"
+                      onclick="openProjectModal(projects.aley)"
+                    >
+                      View Case Study
+                    </button>
                   </div>
                 </div>
               </article>
@@ -1602,92 +664,6 @@
                     <span class="tech-badge">SEO Structure</span>
                   </div>
 
-                  <div class="glass-card p-4 mb-4">
-                    <h4 class="h6 fw-bold mb-3 gradient-accent">
-                      Key Features
-                    </h4>
-
-                    <div class="row g-3">
-                      <div class="col-sm-6">
-                        <div class="metric h-100">
-                          <h3 class="gradient-accent">Dynamic Admissions</h3>
-
-                          <p class="mb-0 text-secondary">
-                            JavaScript-powered conditional workflows adapting
-                            universities, faculty programs, and required
-                            documents dynamically.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div class="col-sm-6">
-                        <div class="metric h-100">
-                          <h3 class="gradient-accent">Student Onboarding</h3>
-
-                          <p class="mb-0 text-secondary">
-                            Structured admission experience designed to guide
-                            international students through the full application
-                            process.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <h4 class="h6 fw-bold mb-3">Main Pages & Purpose</h4>
-
-                  <ul class="page-list">
-                    <li>
-                      <strong>Homepage:</strong>
-                      Educational landing page presenting Georgian universities,
-                      admission services, testimonials, FAQs, and
-                      student-focused onboarding information.
-                    </li>
-
-                    <li>
-                      <strong>Universities Section:</strong>
-                      Structured university listing system displaying supported
-                      institutions and educational options available for
-                      international students.
-                    </li>
-
-                    <li>
-                      <strong>Services Section:</strong>
-                      Admission-related service presentation including
-                      translation, visa assistance, university acceptance,
-                      accommodation, and residency support.
-                    </li>
-
-                    <li>
-                      <strong>Testimonials & FAQ:</strong>
-                      Trust-building sections showcasing student experiences,
-                      acceptance letters, and frequently asked admission
-                      questions.
-                    </li>
-
-                    <li>
-                      <strong>Apply Page:</strong>
-                      Dynamic Laravel-powered admission form system with
-                      JavaScript-based conditional logic that updates faculty
-                      programs, required documents, and validation flows based
-                      on selected universities, age groups, and application
-                      requirements.
-                    </li>
-
-                    <li>
-                      <strong>Document Upload System:</strong>
-                      Multi-file admission upload workflow supporting passports,
-                      certificates, residency documents, and conditional student
-                      requirements.
-                    </li>
-
-                    <li>
-                      <strong>Contact Interface:</strong>
-                      Responsive communication and consultation flow optimized
-                      for international student inquiries.
-                    </li>
-                  </ul>
-
                   <div class="project-links">
                     <a
                       href="https://tbilisigeorgiauniversity.com/"
@@ -1697,6 +673,13 @@
                     >
                       Visit Live Website
                     </a>
+
+                    <button
+                      class="btn btn-secondary-custom"
+                      onclick="openProjectModal(projects.tbilisi)"
+                    >
+                      View Case Study
+                    </button>
                   </div>
                 </div>
               </article>
@@ -1795,162 +778,127 @@
     <!-- Toast Container -->
     <div class="toast-container-custom" id="toastContainer"></div>
 
+    <div
+      class="modal fade"
+      id="projectModal"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content project-modal-content">
+          <!-- CLOSE -->
+          <button
+            type="button"
+            class="btn-close btn-close-white project-modal-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+          <!-- BODY -->
+          <div class="modal-body p-0">
+            <!-- HERO PREVIEW -->
+            <div class="project-modal-preview">
+              <img
+                id="modalImage"
+                src=""
+                alt=""
+                class="img-fluid w-100 project-modal-image"
+              />
+
+              <div class="project-modal-overlay"></div>
+
+              <div class="project-modal-top">
+                <div>
+                  <span id="modalCategory" class="project-modal-category">
+                    Laravel Platform
+                  </span>
+
+                  <h2 id="projectModalLabel" class="project-modal-title">
+                    Project Title
+                  </h2>
+
+                  <p
+                    id="modalShortDescription"
+                    class="project-modal-short-description"
+                  >
+                    Short description here...
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="project-modal-body">
+              <!-- TECH -->
+              <div class="mb-5">
+                <h3 class="project-modal-section-title">Technologies</h3>
+
+                <div id="modalTechStack" class="d-flex flex-wrap gap-2"></div>
+              </div>
+
+              <!-- DESCRIPTION -->
+              <div class="mb-5">
+                <h3 class="project-modal-section-title">Project Overview</h3>
+
+                <p id="modalDescription" class="project-modal-text"></p>
+              </div>
+
+              <!-- FEATURES -->
+              <div class="mb-5">
+                <h3 class="project-modal-section-title">Key Features</h3>
+
+                <div id="modalFeatures" class="row g-4"></div>
+              </div>
+
+              <!-- PAGES -->
+              <div class="mb-5">
+                <h3 class="project-modal-section-title">
+                  Main Pages & Purpose
+                </h3>
+
+                <ul id="modalPages" class="project-modal-pages"></ul>
+              </div>
+
+              <!-- CTA -->
+              <div class="d-flex flex-wrap gap-3 align-items-center">
+                <a
+                  id="modalLiveLink"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary-custom"
+                >
+                  Visit Live Website
+                </a>
+
+                <a
+                  id="modalGithubLink"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary-custom d-none"
+                >
+                  View GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Typing effect
-        const typingElement = document.getElementById("typing");
-
-        const phrases = [
-          " I craft scalable systems.",
-          " I engineer with precision.",
-          " I build performance-first platforms.",
-          " I create digital infrastructure.",
-        ];
-
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
-
-        function typeEffect() {
-          const currentPhrase = phrases[phraseIndex];
-
-          if (!deleting) {
-            typingElement.textContent = currentPhrase.substring(
-              0,
-              charIndex + 1,
-            );
-            charIndex++;
-
-            if (charIndex === currentPhrase.length) {
-              deleting = true;
-              setTimeout(typeEffect, 1500);
-              return;
-            }
-          } else {
-            typingElement.textContent = currentPhrase.substring(
-              0,
-              charIndex - 1,
-            );
-            charIndex--;
-
-            if (charIndex === 0) {
-              deleting = false;
-              phraseIndex = (phraseIndex + 1) % phrases.length;
-            }
-          }
-
-          setTimeout(typeEffect, deleting ? 40 : 70);
-        }
-
-        typeEffect();
-
-        // Fade-up animation
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-              }
-            });
-          },
-          {
-            threshold: 0.1,
-          },
-        );
-
-        document.querySelectorAll(".fade-up").forEach((element) => {
-          observer.observe(element);
-        });
-
-        // Back to top button
-        const backToTop = document.getElementById("backToTop");
-
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 400) {
-            backToTop.classList.add("show");
-          } else {
-            backToTop.classList.remove("show");
-          }
-        });
-
-        backToTop.addEventListener("click", () => {
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        });
-
-        // Copy email
-        const copyButtons = document.querySelectorAll("[data-copy]");
-        const toastContainer = document.getElementById("toastContainer");
-
-        function showToast(message) {
-          const toast = document.createElement("div");
-          toast.className = "custom-toast";
-          toast.textContent = message;
-
-          toastContainer.appendChild(toast);
-
-          setTimeout(() => {
-            toast.remove();
-          }, 3000);
-        }
-
-        copyButtons.forEach((button) => {
-          button.addEventListener("click", async () => {
-            try {
-              await navigator.clipboard.writeText(button.dataset.copy);
-              showToast("Email copied successfully");
-            } catch (error) {
-              showToast("Unable to copy email");
-            }
-          });
-        });
-
-        // Project filter
-        const filterButtons = document.querySelectorAll(".filter-btn");
-        const projectItems = document.querySelectorAll(".project-item");
-
-        filterButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            filterButtons.forEach((btn) => btn.classList.remove("active"));
-            button.classList.add("active");
-
-            const filter = button.dataset.filter;
-
-            projectItems.forEach((item) => {
-              if (filter === "all" || item.dataset.category === filter) {
-                item.style.display = "block";
-              } else {
-                item.style.display = "none";
-              }
-            });
-          });
-        });
-
-        // Smooth scrolling for nav links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (event) {
-            event.preventDefault();
-
-            const target = document.querySelector(this.getAttribute("href"));
-
-            if (target) {
-              target.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }
-          });
-        });
-      });
-    </script>
+    <script src="./assets/js/projects-data.js"></script>
+    <script src="./assets/scripts/main.js"></script>
   </body>
 </html>
+
+

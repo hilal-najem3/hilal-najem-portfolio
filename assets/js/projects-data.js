@@ -1,0 +1,268 @@
+window.projectCaseStudies = {
+  "ittihad": {
+    "title": "ITTIHAD Sweets & Catering",
+    "category": "Laravel Business Platform",
+    "image": "assets/images/projects/ittihad.co_.png",
+    "shortDescription": "Luxury sweets and catering platform focused on heritage storytelling, premium product presentation, and structured brand identity.",
+    "description": "Luxury Laravel-powered platform focused on heritage storytelling, premium presentation, and structured brand identity for one of Aley's long-standing oriental sweets brands. The project focused on combining luxury visual presentation, responsive frontend engineering, structured content architecture, SEO readiness, and historical brand storytelling into a scalable modern digital experience.",
+    "liveUrl": "https://ittihad.co",
+    "githubUrl": "",
+    "tech": [
+      "Laravel",
+      "PHP",
+      "Bootstrap 5",
+      "JavaScript",
+      "Responsive Design",
+      "SEO Architecture",
+      "Structured Content",
+      "UI/UX Engineering"
+    ],
+    "features": [
+      {
+        "title": "Luxury Brand Presentation",
+        "description": "Premium handcrafted UI system focused on elegant sweets presentation and strong visual identity."
+      },
+      {
+        "title": "Heritage Storytelling",
+        "description": "Interactive historical timeline showcasing the evolution and legacy of the company since 1954."
+      },
+      {
+        "title": "Responsive Architecture",
+        "description": "Optimized responsive experience engineered for desktop, tablet, and mobile interaction."
+      },
+      {
+        "title": "SEO Structure",
+        "description": "Semantic content hierarchy, optimized metadata, and structured architecture for search visibility."
+      }
+    ],
+    "pages": [
+      {
+        "title": "Homepage",
+        "description": "Elegant landing experience introducing the brand, handcrafted sweets, and premium customer identity."
+      },
+      {
+        "title": "About",
+        "description": "Historical storytelling section presenting the company's heritage, evolution, and long-term legacy."
+      },
+      {
+        "title": "Menu",
+        "description": "Structured sweets categories showcasing oriental desserts, cakes, chocolate, and catering products."
+      },
+      {
+        "title": "Gift Boxes",
+        "description": "Premium product presentation system designed for gifting experiences and luxury packaging."
+      },
+      {
+        "title": "Testimonials",
+        "description": "Trust-focused customer feedback integration supporting brand credibility and social proof."
+      },
+      {
+        "title": "Contact",
+        "description": "Responsive communication interface optimized for inquiries, branch access, and customer engagement."
+      }
+    ]
+  },
+  "horecamak": {
+    "title": "Horecamak",
+    "category": "Laravel Corporate Platform",
+    "image": "assets/images/projects/horecamak.ae_.png",
+    "shortDescription": "Corporate procurement platform developed for a UAE hospitality sourcing and trading agency.",
+    "description": "A Laravel-powered procurement and trading platform developed for Horecamak UAE. The website was engineered as a structured corporate single-page experience focused on procurement positioning, operational clarity, responsive business presentation, hospitality-sector targeting, and scalable communication architecture.",
+    "liveUrl": "https://horecamak.ae",
+    "githubUrl": "",
+    "tech": [
+      "Laravel",
+      "PHP",
+      "Bootstrap 5",
+      "JavaScript",
+      "Corporate UI",
+      "Responsive Architecture",
+      "SEO Structure",
+      "Single-Page Experience"
+    ],
+    "features": [
+      {
+        "title": "Procurement Positioning",
+        "description": "Corporate business presentation focused on procurement workflows, sourcing solutions, and operational partnerships."
+      },
+      {
+        "title": "Single-Page Navigation",
+        "description": "Structured scrolling architecture engineered for smooth navigation and modern corporate readability."
+      },
+      {
+        "title": "Hospitality Industry Focus",
+        "description": "Business-oriented UI and communication structure tailored for hospitality and service-sector operations."
+      },
+      {
+        "title": "B2B Communication Flow",
+        "description": "Optimized contact and inquiry system designed for procurement discussions and commercial leads."
+      }
+    ],
+    "pages": [
+      {
+        "title": "Hero Section",
+        "description": "Large-scale corporate introduction presenting Horecamak's procurement identity and business positioning."
+      },
+      {
+        "title": "Who We Are",
+        "description": "Company introduction explaining Horecamak's role as a procurement and trading agency."
+      },
+      {
+        "title": "Mission & Values",
+        "description": "Operational philosophy highlighting efficiency, ethical sourcing, scalability, and partnership strategy."
+      },
+      {
+        "title": "Why Choose Us",
+        "description": "Structured advantages section presenting expertise, cost efficiency, global sourcing, and procurement focus."
+      },
+      {
+        "title": "Service Solutions",
+        "description": "Procurement outsourcing, supplier management, strategic sourcing, and market access presentation."
+      },
+      {
+        "title": "Advantages",
+        "description": "Business-focused presentation emphasizing operational efficiency, scalability, flexibility, and expertise."
+      },
+      {
+        "title": "Contact",
+        "description": "Responsive B2B communication interface optimized for procurement inquiries and partnerships."
+      }
+    ]
+  },
+  "aley": {
+    "title": "Cultural Society of Aley & Districts",
+    "category": "Laravel CMS Platform",
+    "image": "assets/images/projects/aleyanddistricts.org_.png",
+    "shortDescription": "Community-focused Laravel CMS platform supporting news publishing, events management, and organizational outreach.",
+    "description": "A Laravel-powered multi-page organizational platform developed for the Cultural Society of Aley & Districts. The project focused on dynamic content management, event publishing, editor-access administration, responsive community engagement, and long-term organizational communication through a structured CMS architecture.",
+    "liveUrl": "https://aleyanddistricts.org",
+    "githubUrl": "",
+    "tech": [
+      "Laravel",
+      "PHP",
+      "Bootstrap 5",
+      "JavaScript",
+      "CMS Architecture",
+      "CRUD System",
+      "Responsive Design",
+      "SEO Structure",
+      "Dynamic Content Management"
+    ],
+    "features": [
+      {
+        "title": "Dynamic CMS",
+        "description": "Editor-access administration system allowing dynamic publishing of news, updates, and organizational content."
+      },
+      {
+        "title": "Events Management",
+        "description": "Structured Laravel CRUD workflows supporting event publishing and community activities."
+      },
+      {
+        "title": "Community Platform",
+        "description": "Responsive platform engineered to support cultural outreach and community engagement."
+      },
+      {
+        "title": "Multi-Page Architecture",
+        "description": "Scalable page structure separating news, events, leadership, and organizational communication."
+      }
+    ],
+    "pages": [
+      {
+        "title": "Homepage",
+        "description": "Community-focused landing page introducing the organization's mission, initiatives, and cultural identity."
+      },
+      {
+        "title": "About Page",
+        "description": "Dedicated organizational page presenting the society's heritage, objectives, and community vision."
+      },
+      {
+        "title": "News Page",
+        "description": "Dynamic Laravel-powered publishing platform allowing editors to create and manage news articles."
+      },
+      {
+        "title": "Events Page",
+        "description": "Event management and publishing system supporting community programs and cultural activities."
+      },
+      {
+        "title": "Board Page",
+        "description": "Leadership presentation page providing visibility into organizational board members and structure."
+      },
+      {
+        "title": "Contact Page",
+        "description": "Responsive communication interface optimized for organizational accessibility and engagement."
+      }
+    ]
+  },
+  "tbilisi": {
+    "title": "Tbilisi Georgia University",
+    "category": "Laravel Application Platform",
+    "image": "assets/images/projects/tbilisigeorgiauniversity.com_.png",
+    "shortDescription": "University admissions platform with dynamic application workflows and conditional onboarding systems.",
+    "description": "A Laravel-powered student admissions platform developed to simplify international applications for Georgian universities. The project combined educational presentation, dynamic onboarding workflows, conditional JavaScript logic, file upload systems, and responsive application architecture into a structured admissions experience.",
+    "liveUrl": "https://tbilisigeorgiauniversity.com",
+    "githubUrl": "",
+    "tech": [
+      "Laravel",
+      "PHP",
+      "Bootstrap 5",
+      "JavaScript",
+      "Dynamic Forms",
+      "Conditional Logic",
+      "File Upload System",
+      "Responsive Design",
+      "SEO Structure"
+    ],
+    "features": [
+      {
+        "title": "Dynamic Admissions System",
+        "description": "JavaScript-powered workflows dynamically updating universities, faculty programs, and application requirements."
+      },
+      {
+        "title": "Conditional Form Logic",
+        "description": "Adaptive onboarding system changing required documents and validation rules based on application conditions."
+      },
+      {
+        "title": "Student Onboarding",
+        "description": "Structured admission experience guiding international students through the full registration workflow."
+      },
+      {
+        "title": "Document Upload Infrastructure",
+        "description": "Multi-file upload system supporting passports, certificates, residency documents, and onboarding requirements."
+      }
+    ],
+    "pages": [
+      {
+        "title": "Homepage",
+        "description": "Educational landing experience presenting universities, admission services, testimonials, and onboarding information."
+      },
+      {
+        "title": "Universities Section",
+        "description": "Structured university listing system displaying available Georgian institutions and educational options."
+      },
+      {
+        "title": "Services Section",
+        "description": "Admission-related services including translation, visa support, accommodation, and university acceptance."
+      },
+      {
+        "title": "Testimonials & FAQ",
+        "description": "Trust-building sections presenting acceptance letters, student experiences, and onboarding guidance."
+      },
+      {
+        "title": "Apply Page",
+        "description": "Dynamic Laravel-powered application form with conditional JavaScript workflows updating faculties, requirements, and onboarding logic."
+      },
+      {
+        "title": "Faculty Program Selection",
+        "description": "Dynamic program selection workflow automatically updating faculties according to selected universities."
+      },
+      {
+        "title": "Conditional Documents System",
+        "description": "Adaptive requirement engine updating uploaded documents based on age, diploma conditions, and student status."
+      },
+      {
+        "title": "Contact Interface",
+        "description": "Responsive consultation and inquiry system optimized for international student communication."
+      }
+    ]
+  }
+};
