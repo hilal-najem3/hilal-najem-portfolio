@@ -178,12 +178,17 @@ document.addEventListener("DOMContentLoaded", () => {
       anchor.addEventListener("click", function (event) {
         event.preventDefault();
 
-        const target = document.querySelector(this.getAttribute("href"));
+        const targetId = this.getAttribute("href");
+        const target = document.querySelector(targetId);
 
         if (target) {
-          target.scrollIntoView({
+          const navbar = document.querySelector(".navbar");
+          const navbarOffset = navbar ? navbar.offsetHeight + 16 : 0;
+          const targetTop = target.getBoundingClientRect().top + window.scrollY;
+
+          window.scrollTo({
+            top: Math.max(targetTop - navbarOffset, 0),
             behavior: "smooth",
-            block: "start",
           });
         }
       });
