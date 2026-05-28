@@ -236,11 +236,7 @@ body::before {
   position: absolute;
   width: 220px;
   height: 220px;
-  background: radial-gradient(
-    circle,
-    rgba(139, 92, 246, 0.4),
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent 70%);
   top: -80px;
   right: -80px;
 }
@@ -844,5 +840,161 @@ footer {
 
   .project-modal-title {
     font-size: 2.2rem;
+  }
+}
+
+/* =========================================================
+   ENGINEERING PRINCIPLES
+========================================================= */
+
+.principle-card {
+  padding: 2rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.principle-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.principle-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.08),
+    rgba(6, 182, 212, 0.05)
+  );
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.principle-card:hover::before {
+  opacity: 1;
+}
+
+.principle-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+.principle-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.principle-description {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   PROCESS SECTION
+========================================================= */
+
+.process-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.process-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(139, 92, 246, 0.5),
+    rgba(6, 182, 212, 0.3)
+  );
+}
+
+.process-item {
+  position: relative;
+  padding-left: 90px;
+  margin-bottom: 3rem;
+}
+
+.process-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
+  z-index: 2;
+}
+
+.process-card {
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.process-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.process-description {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .process-wrapper::before {
+    left: 20px;
+  }
+
+  .process-item {
+    padding-left: 70px;
+  }
+
+  .process-number {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .principle-card,
+  .process-card {
+    padding: 1.5rem;
   }
 }
