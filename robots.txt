@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hilal-najem-portfolio.pages.dev/sitemap.xml
+
+# Crawl-friendly production settings
+Disallow: /assets/js/projects-data.js
