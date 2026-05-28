@@ -198,6 +198,23 @@
         font-size: 0.95rem;
       }
 
+      .hero-title {
+        font-size: clamp(3.5rem, 8vw, 6rem);
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+        margin-bottom: 1rem;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.2rem, 2vw, 1.7rem);
+        color: var(--text-secondary);
+        font-weight: 500;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+        max-width: 700px;
+      }
+
       .pulse-dot {
         width: 10px;
         height: 10px;
@@ -300,7 +317,7 @@
       }
 
       .hero-card {
-        padding: 2rem;
+        padding: 2.5rem;
         position: relative;
         overflow: hidden;
       }
@@ -324,6 +341,10 @@
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.04);
         text-align: center;
+        min-height: 110px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .metric h3 {
@@ -801,21 +822,6 @@
         transition: transform 10s ease;
       }
 
-      /*
-|--------------------------------------------------------------------------
-| IMPORTANT
-|--------------------------------------------------------------------------
-|
-| Use a VERY large negative translateY.
-| The browser automatically stops at image bounds.
-|
-| This guarantees:
-| - full screenshot scrolling
-| - always reaches end
-| - no guessing percentages
-|
-*/
-
       .browser-frame:hover .website-preview-image {
         transform: translateY(calc(-100% + 520px));
       }
@@ -871,16 +877,22 @@
                 Available for freelance & long-term collaborations
               </div>
 
-              <h1 class="fade-up">
-                <span class="gradient-text">I Build</span>
-                <span class="gradient-accent">Structured</span><br />
-                Digital Systems
+              <h1 class="fade-up hero-title">
+                Backend-Focused
+                <span class="gradient-accent"> Laravel Engineer </span>
               </h1>
 
+              <h2 class="hero-subtitle fade-up">
+                Building scalable business systems, APIs, and digital
+                infrastructure.
+              </h2>
+
               <p class="hero-description fade-up">
-                Full-stack web developer focused on scalable Laravel
-                architecture, modern frontend systems, SEO-first engineering,
-                and performance-driven digital platforms.
+                Backend-focused full-stack engineer specializing in scalable
+                Laravel systems, API architecture, deployment workflows, and
+                structured business platforms. I build production-ready
+                applications with long-term maintainability, performance, and
+                operational reliability in mind.
                 <span class="typing" id="typing"></span>
               </p>
 
@@ -900,15 +912,32 @@
                 <div class="row g-3 mb-4">
                   <div class="col-6">
                     <div class="metric">
-                      <h3 class="gradient-accent">4+</h3>
-                      <p class="mb-0 text-secondary">Production Projects</p>
+                      <h3 class="gradient-accent">Laravel</h3>
+
+                      <p class="mb-0 text-secondary">Systems</p>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="metric">
+                      <h3 class="gradient-accent">API</h3>
+
+                      <p class="mb-0 text-secondary">Architecture</p>
                     </div>
                   </div>
 
                   <div class="col-6">
                     <div class="metric">
-                      <h3 class="gradient-accent">100%</h3>
-                      <p class="mb-0 text-secondary">Responsive Systems</p>
+                      <h3 class="gradient-accent">AWS</h3>
+
+                      <p class="mb-0 text-secondary">Deployment</p>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="metric">
+                      <h3 class="gradient-accent">Multi-Tenant</h3>
+
+                      <p class="mb-0 text-secondary">Architecture</p>
                     </div>
                   </div>
                 </div>
@@ -939,10 +968,15 @@
           <div class="text-center mb-5 fade-up">
             <h2 class="section-title">About Me</h2>
             <p class="section-subtitle">
-              I’m Hilal Najem — a full-stack developer and digital systems
-              architect. I build scalable business platforms with a focus on
-              clean code, structured execution, long-term stability, and
-              SEO-first engineering.
+              I’m Hilal Najem — a backend-focused full-stack engineer
+              specializing in Laravel architecture, scalable business systems,
+              API-driven platforms, and deployment infrastructure. My work
+              focuses on building maintainable applications with structured
+              backend logic, operational reliability, responsive frontend
+              systems, and long-term scalability. Beyond development, I engineer
+              systems with performance, SEO structure, and business workflow
+              precision in mind — creating platforms businesses can depend on
+              operationally, not just visually.
             </p>
           </div>
 
@@ -970,7 +1004,7 @@
       <section class="section pt-0" id="skills">
         <div class="container">
           <div class="text-center mb-5 fade-up">
-            <h2 class="section-title">Core Expertise</h2>
+            <h2 class="section-title">Systems Engineering Expertise</h2>
             <p class="section-subtitle">
               Modern full-stack development with a strong focus on Laravel
               systems, frontend engineering, SEO architecture, and
@@ -984,8 +1018,21 @@
                 <div class="skill-icon">🛠</div>
                 <h3 class="h4 fw-bold mb-3">Backend Systems</h3>
                 <p class="text-secondary">
-                  Laravel API development, multi-tenant systems, authentication,
-                  role management, and scalable architecture.
+                  Architecting scalable Laravel applications, RESTful APIs,
+                  multi-tenant systems, service-layer workflows, authentication
+                  systems, and structured business logic for production-grade
+                  platforms.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-md-6 col-xl-3 fade-up">
+              <article class="glass-card skill-card h-100">
+                <div class="skill-icon">🏗</div>
+                <h3 class="h4 fw-bold mb-3">Business Platforms</h3>
+                <p class="text-secondary">
+                  Structured websites, dashboards, operational systems, CMS
+                  platforms, and scalable business solutions.
                 </p>
               </article>
             </div>
@@ -1003,22 +1050,25 @@
 
             <div class="col-md-6 col-xl-3 fade-up">
               <article class="glass-card skill-card h-100">
-                <div class="skill-icon">📈</div>
-                <h3 class="h4 fw-bold mb-3">SEO & Performance</h3>
+                <div class="skill-icon">☁</div>
+
+                <h3 class="h4 fw-bold mb-3">Deployment & Infrastructure</h3>
+
                 <p class="text-secondary">
-                  Structured metadata, semantic HTML, sitemap systems,
-                  schema.org integration, and speed optimization.
+                  Deploying and maintaining Laravel applications across shared
+                  hosting and AWS environments with production-focused
+                  configuration, optimization, and operational reliability.
                 </p>
               </article>
             </div>
 
             <div class="col-md-6 col-xl-3 fade-up">
               <article class="glass-card skill-card h-100">
-                <div class="skill-icon">🏗</div>
-                <h3 class="h4 fw-bold mb-3">Business Platforms</h3>
+                <div class="skill-icon">📈</div>
+                <h3 class="h4 fw-bold mb-3">SEO & Performance</h3>
                 <p class="text-secondary">
-                  Structured websites, dashboards, operational systems, CMS
-                  platforms, and scalable business solutions.
+                  Structured metadata, semantic HTML, sitemap systems,
+                  schema.org integration, and speed optimization.
                 </p>
               </article>
             </div>
