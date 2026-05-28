@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function loadProjects() {
+    if (window.location.protocol === "file:") {
+      return;
+    }
+
     fetch("./assets/json/projects.json")
       .then((response) => {
         if (!response.ok) {
