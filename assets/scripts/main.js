@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.projects = projects;
 
   const toastContainer = document.getElementById("toastContainer");
-  const projectModal = new bootstrap.Modal(
-    document.getElementById("projectModal"),
-  );
+  const projectModalElement = document.getElementById("projectModal");
+  const projectModal = new bootstrap.Modal(projectModalElement, {
+    focus: true,
+  });
 
   function showToast(message) {
     const toast = document.createElement("div");
@@ -176,12 +177,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (event) {
-        event.preventDefault();
-
         const targetId = this.getAttribute("href");
-        const target = document.querySelector(targetId);
+
+        if (!targetId || targetId === "#") {
+          return;
+        }
+
+        let target;
+
+        try {
+          target = document.querySelector(targetId);
+        } catch (error) {
+          return;
+        }
 
         if (target) {
+          event.preventDefault();
+
           const navbar = document.querySelector(".navbar");
           const navbarOffset = navbar ? navbar.offsetHeight + 16 : 0;
           const targetTop = target.getBoundingClientRect().top + window.scrollY;
@@ -193,6 +205,93 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
+  }
+
+  function initWebsitePreviews() {
+    const frames = document.querySelectorAll(".browser-frame");
+    const isTouchDevice = window.matchMedia("(hover: none), (pointer: coarse)");
+
+    function updatePreviewTravel(frame) {
+      const container = frame.querySelector(".website-preview-container");
+      const image = frame.querySelector(".website-preview-image");
+
+      if (!container || !image) {
+        return;
+      }
+
+      const travel = Math.max(0, image.scrollHeight - container.clientHeight);
+      frame.style.setProperty("--preview-travel", `${travel}px`);
+      frame.style.setProperty(
+        "--preview-duration",
+        `${Math.min(Math.max(travel / 90, 4), 10)}s`,
+      );
+    }
+
+    function updateAllPreviewTravel() {
+      frames.forEach(updatePreviewTravel);
+    }
+
+    frames.forEach((frame) => {
+      frame.tabIndex = 0;
+      frame.setAttribute("role", "img");
+      frame.setAttribute(
+        "aria-label",
+        `Scrollable preview of ${
+          frame.querySelector(".browser-url")?.textContent?.trim() ||
+          "project website"
+        }`,
+      );
+
+      frame.querySelectorAll(".website-preview-image").forEach((image) => {
+        if (image.complete) {
+          updatePreviewTravel(frame);
+        } else {
+          image.addEventListener("load", () => updatePreviewTravel(frame), {
+            once: true,
+          });
+        }
+      });
+
+      frame.addEventListener("pointerup", () => {
+        if (!isTouchDevice.matches) {
+          return;
+        }
+
+        frame.classList.add("is-previewing");
+      });
+    });
+
+    if ("ResizeObserver" in window) {
+      const observer = new ResizeObserver(updateAllPreviewTravel);
+      frames.forEach((frame) => observer.observe(frame));
+    }
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!isTouchDevice.matches) {
+              return;
+            }
+
+            entry.target.classList.toggle(
+              "is-previewing",
+              entry.isIntersecting,
+            );
+          });
+        },
+        {
+          threshold: 0.55,
+        },
+      );
+
+      frames.forEach((frame) => observer.observe(frame));
+    }
+
+    window.addEventListener("resize", updateAllPreviewTravel, {
+      passive: true,
+    });
+    updateAllPreviewTravel();
   }
 
   function renderProjectTech(project) {
@@ -244,14 +343,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const liveLink = document.getElementById("modalLiveLink");
     const githubLink = document.getElementById("modalGithubLink");
 
-    liveLink.href = project.liveUrl;
+    liveLink.href = project.liveUrl || "#";
+    liveLink.toggleAttribute("aria-disabled", !project.liveUrl);
 
     if (project.githubUrl) {
       githubLink.href = project.githubUrl;
+      githubLink.removeAttribute("aria-disabled");
       githubLink.classList.remove("d-none");
     } else {
+      githubLink.href = "#";
+      githubLink.setAttribute("aria-disabled", "true");
       githubLink.classList.add("d-none");
     }
+  }
+
+  function initProjectModalLinks() {
+    projectModalElement.addEventListener("click", (event) => {
+      const link = event.target.closest("a[target='_blank']");
+
+      if (!link || !projectModalElement.contains(link)) {
+        return;
+      }
+
+      const href = link.getAttribute("href");
+
+      if (
+        !href ||
+        href === "#" ||
+        link.getAttribute("aria-disabled") === "true"
+      ) {
+        event.preventDefault();
+        showToast("Project link is unavailable");
+        return;
+      }
+
+      event.stopPropagation();
+    });
   }
 
   function openProjectModal(project) {
@@ -284,6 +411,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initCopyButtons();
   initProjectFilter();
   initSmoothScrolling();
+  initWebsitePreviews();
+  initProjectModalLinks();
 
   window.openProjectModal = openProjectModal;
   window.projects = projects;

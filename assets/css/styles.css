@@ -25,6 +25,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -44,6 +45,10 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   line-height: 1.7;
+  min-width: 320px;
+  min-height: 100svh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body::before {
@@ -194,6 +199,7 @@ body::before {
   font-weight: 700;
   transition: var(--transition);
   box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+  min-height: 48px;
 }
 
 .btn-primary-custom:hover {
@@ -210,6 +216,21 @@ body::before {
   font-weight: 700;
   backdrop-filter: blur(20px);
   transition: var(--transition);
+  min-height: 48px;
+}
+
+a,
+button,
+.browser-frame {
+  touch-action: manipulation;
+}
+
+a:focus-visible,
+button:focus-visible,
+.filter-btn:focus-visible,
+.browser-frame:focus-visible {
+  outline: 3px solid rgba(6, 182, 212, 0.75);
+  outline-offset: 4px;
 }
 
 .btn-secondary-custom:hover {
@@ -935,6 +956,7 @@ footer {
 .website-preview-wrapper {
   perspective: 1600px;
   position: relative;
+  --preview-height: 520px;
 }
 
 .browser-frame {
@@ -949,9 +971,13 @@ footer {
   transition:
     transform 0.45s ease,
     box-shadow 0.45s ease;
+  will-change: transform;
 }
 
-.browser-frame:hover {
+.browser-frame:hover,
+.browser-frame:focus,
+.browser-frame:focus-within,
+.browser-frame.is-previewing {
   transform: translateY(-10px);
   box-shadow:
     0 35px 80px rgba(0, 0, 0, 0.55),
@@ -1004,19 +1030,26 @@ footer {
 }
 
 .website-preview-container {
-  height: 520px;
+  height: var(--preview-height);
   overflow: hidden;
   position: relative;
+  transform: translateZ(0);
 }
 
 .website-preview-image {
   width: 100%;
   display: block;
-  transition: transform 8s ease;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform var(--preview-duration, 8s) cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
-.browser-frame:hover .website-preview-image {
-  transform: translateY(calc(-100% + 520px));
+.browser-frame:hover .website-preview-image,
+.browser-frame:focus .website-preview-image,
+.browser-frame:focus-within .website-preview-image,
+.browser-frame.is-previewing .website-preview-image {
+  transform: translate3d(0, calc(-1 * var(--preview-travel, 0px)), 0);
 }
 
 .navbar-toggler-icon {
@@ -1035,11 +1068,29 @@ footer {
 
   border-radius: 32px;
 
+  max-height: min(
+    920px,
+    calc(100dvh - 2rem - env(safe-area-inset-top) - env(safe-area-inset-bottom))
+  );
   overflow: hidden;
 
   backdrop-filter: blur(30px);
 
   color: white;
+}
+
+.project-modal-content .modal-body {
+  max-height: inherit;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.project-modal-content .modal-body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .project-modal-close {
@@ -1079,6 +1130,7 @@ footer {
     rgba(5, 8, 22, 0.95),
     rgba(5, 8, 22, 0.15)
   );
+  pointer-events: none;
 }
 
 .project-modal-top {
@@ -1089,6 +1141,7 @@ footer {
   right: 40px;
 
   z-index: 2;
+  pointer-events: none;
 }
 
 .project-modal-category {
@@ -1133,6 +1186,8 @@ footer {
 
 .project-modal-body {
   padding: 4rem;
+  position: relative;
+  z-index: 3;
 }
 
 .project-modal-section-title {
@@ -1239,7 +1294,7 @@ footer {
   }
 
   .website-preview-container {
-    height: 300px;
+    height: var(--preview-height);
   }
 
   .project-modal-preview {
@@ -1414,5 +1469,259 @@ footer {
   .principle-card,
   .process-card {
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .website-preview-wrapper {
+    --preview-height: 420px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    padding: 1rem 0 0.5rem;
+  }
+
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .website-preview-wrapper {
+    --preview-height: 380px;
+  }
+
+  .modal-dialog.project-modal-dialog {
+    margin:
+      max(0.75rem, env(safe-area-inset-top))
+      max(0.75rem, env(safe-area-inset-right))
+      max(0.75rem, env(safe-area-inset-bottom))
+      max(0.75rem, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 767.98px) {
+  html {
+    scroll-padding-top: 78px;
+  }
+
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-top: calc(88px + env(safe-area-inset-top));
+    padding-bottom: 64px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.65rem, 14vw, 3.5rem);
+    line-height: 1;
+  }
+
+  .hero-badge {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero-buttons,
+  .project-links,
+  .contact-main-buttons {
+    align-items: stretch;
+  }
+
+  .hero-buttons .btn,
+  .project-links .btn,
+  .project-modal-body .btn,
+  .contact-main-buttons .btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section {
+    padding: 76px 0;
+  }
+
+  .section-subtitle {
+    margin-bottom: 2.5rem;
+  }
+
+  .website-preview-wrapper {
+    --preview-height: min(78svh, 340px);
+  }
+
+  .browser-frame:hover {
+    transform: none;
+  }
+
+  .browser-topbar {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .browser-url {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.78rem;
+  }
+
+  .project-modal-content {
+    border-radius: 24px;
+    max-height: calc(
+      100dvh - 1rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+  }
+
+  .project-modal-close {
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    padding: 0.8rem;
+    border-radius: 999px;
+    background-color: rgba(5, 8, 22, 0.7);
+    background-size: 0.85rem;
+  }
+
+  .project-modal-preview {
+    height: min(52svh, 330px);
+  }
+
+  .project-modal-category {
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 0.78rem;
+  }
+
+  .project-modal-short-description {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .project-modal-body {
+    padding: 1.75rem 1.25rem calc(1.75rem + env(safe-area-inset-bottom));
+  }
+
+  .project-feature-card,
+  .project-modal-pages li {
+    border-radius: 18px;
+  }
+
+  .contact-experience {
+    padding: 84px 0;
+  }
+
+  .contact-action {
+    border-radius: 22px;
+  }
+
+  footer .d-flex.gap-3 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .back-to-top {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    --bs-gutter-x: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 13vw, 3rem);
+  }
+
+  .section-title,
+  .contact-headline {
+    letter-spacing: -0.035em;
+  }
+
+  .website-preview-wrapper {
+    --preview-height: min(72svh, 300px);
+  }
+
+  .project-content,
+  .skill-card,
+  .contact-card,
+  .hero-card,
+  .principle-card,
+  .process-card {
+    padding: 1.25rem;
+  }
+
+  .project-title,
+  .process-title,
+  .principle-title {
+    overflow-wrap: anywhere;
+  }
+
+  .tech-badge {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .process-item {
+    padding-left: 58px;
+  }
+
+  .process-wrapper::before {
+    left: 18px;
+  }
+
+  .project-modal-title {
+    font-size: clamp(1.85rem, 11vw, 2.35rem);
+    letter-spacing: -0.035em;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 2.15rem;
+  }
+
+  .btn-primary-custom,
+  .btn-secondary-custom,
+  .filter-btn {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .website-preview-wrapper {
+    --preview-height: 270px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .website-preview-wrapper {
+    --preview-height: 560px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .browser-frame:hover .website-preview-image,
+  .browser-frame:focus .website-preview-image,
+  .browser-frame:focus-within .website-preview-image,
+  .browser-frame.is-previewing .website-preview-image {
+    transform: none;
   }
 }

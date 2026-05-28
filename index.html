@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
 
     <!-- Primary SEO -->
     <title>Hilal Najem | Laravel Systems Engineer & Backend Developer</title>
@@ -634,12 +637,20 @@
           <div
             class="d-flex flex-wrap justify-content-center gap-3 mb-5 fade-up"
           >
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="business">Business</button>
-            <button class="filter-btn" data-filter="education">
+            <button type="button" class="filter-btn active" data-filter="all">
+              All
+            </button>
+            <button type="button" class="filter-btn" data-filter="business">
+              Business
+            </button>
+            <button type="button" class="filter-btn" data-filter="education">
               Education
             </button>
-            <button class="filter-btn" data-filter="organization">
+            <button
+              type="button"
+              class="filter-btn"
+              data-filter="organization"
+            >
               Organization
             </button>
           </div>
@@ -711,6 +722,7 @@
                     </a>
 
                     <button
+                      type="button"
                       class="btn btn-secondary-custom"
                       onclick="openProjectModal(projects.ittihad)"
                     >
@@ -788,6 +800,7 @@
                     </a>
 
                     <button
+                      type="button"
                       class="btn btn-secondary-custom"
                       onclick="openProjectModal(projects.horecamak)"
                     >
@@ -871,6 +884,7 @@
                     </a>
 
                     <button
+                      type="button"
                       class="btn btn-secondary-custom"
                       onclick="openProjectModal(projects.aley)"
                     >
@@ -959,6 +973,7 @@
                     </a>
 
                     <button
+                      type="button"
                       class="btn btn-secondary-custom"
                       onclick="openProjectModal(projects.tbilisi)"
                     >
@@ -1087,7 +1102,12 @@
     </footer>
 
     <!-- Back To Top -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <button
+      type="button"
+      class="back-to-top"
+      id="backToTop"
+      aria-label="Back to top"
+    >
       ↑
     </button>
 
@@ -1102,7 +1122,7 @@
       aria-hidden="true"
     >
       <div
-        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable project-modal-dialog"
       >
         <div class="modal-content project-modal-content">
           <!-- CLOSE -->
