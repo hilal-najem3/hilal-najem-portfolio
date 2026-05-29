@@ -1040,8 +1040,8 @@ footer {
   width: 100%;
   display: block;
   transform: translate3d(0, 0, 0);
-  transition:
-    transform var(--preview-duration, 8s) cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform var(--preview-duration, 8s)
+    cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
@@ -1493,13 +1493,12 @@ footer {
     --preview-height: 380px;
   }
 
-  .modal-dialog.project-modal-dialog {
-    margin:
-      max(0.75rem, env(safe-area-inset-top))
+  /* .modal-dialog.project-modal-dialog {
+    margin: max(0.75rem, env(safe-area-inset-top))
       max(0.75rem, env(safe-area-inset-right))
       max(0.75rem, env(safe-area-inset-bottom))
       max(0.75rem, env(safe-area-inset-left));
-  }
+  } */
 }
 
 @media (max-width: 767.98px) {
@@ -1723,5 +1722,187 @@ footer {
   .browser-frame:focus-within .website-preview-image,
   .browser-frame.is-previewing .website-preview-image {
     transform: none;
+  }
+}
+
+/* =========================================================
+   FINAL PRODUCTION QA HARDENING
+========================================================= */
+
+/* Global overflow protection */
+html,
+body {
+  overflow-x: hidden;
+}
+
+.container,
+.container-fluid,
+.row,
+[class*="col-"] {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Text overflow protection */
+.project-title,
+.project-modal-title,
+.project-modal-short-description,
+.project-description,
+.section-title,
+.section-subtitle,
+.contact-headline,
+.contact-text,
+.process-title,
+.principle-title,
+.browser-url {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Button protection */
+.btn,
+.btn-primary-custom,
+.btn-secondary-custom,
+.filter-btn {
+  white-space: normal;
+  text-align: center;
+  min-height: 48px;
+}
+
+/* Equal project card heights */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-links {
+  margin-top: auto;
+}
+
+/* Browser preview stability */
+.website-preview-wrapper {
+  contain: layout;
+}
+
+.website-preview-container {
+  contain: layout paint;
+}
+
+.website-preview-image {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+/* Modal hardening */
+.modal {
+  overflow-x: hidden;
+}
+
+.modal-dialog.project-modal-dialog {
+  width: min(1400px, calc(100vw - 2rem));
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-modal-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-modal-preview,
+.project-modal-image {
+  width: 100%;
+}
+
+.project-modal-top {
+  max-width: 100%;
+}
+
+.project-modal-category,
+.project-modal-short-description {
+  max-width: 100%;
+}
+
+.project-modal-close {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Tablet modal fix */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .modal-dialog.project-modal-dialog {
+    width: 92vw;
+    max-width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .project-modal-preview {
+    height: 360px;
+  }
+
+  .project-modal-body {
+    padding: 2rem;
+  }
+}
+
+/* Disable hover transforms on touch devices */
+@media (hover: none) {
+  .project-card:hover,
+  .skill-card:hover,
+  .principle-card:hover,
+  .process-card:hover,
+  .contact-action:hover,
+  .browser-frame:hover {
+    transform: none;
+  }
+}
+
+/* Large touch targets */
+.hero-buttons .btn,
+.project-links .btn,
+.contact-action,
+.filter-btn {
+  min-height: 48px;
+}
+
+/* Prevent Bootstrap row overflow edge cases */
+.row {
+  --bs-gutter-x: 1.5rem;
+}
+
+/* Safe long badge content */
+.tech-badge {
+  overflow-wrap: anywhere;
+}
+
+/* Accessibility */
+:focus-visible {
+  outline-offset: 4px;
+}
+
+/* iPad landscape modal fix */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .modal-dialog.project-modal-dialog {
+    width: min(95vw, 1200px);
+    max-width: min(95vw, 1200px);
   }
 }
