@@ -1,0 +1,390 @@
+{
+  "navbar": {
+    "brandPrefix": "Hilal",
+    "brandSuffix": "Najem",
+    "links": [
+      { "href": "#about", "text": "About" },
+      { "href": "#principles", "text": "Principles" },
+      { "href": "#skills", "text": "Skills" },
+      { "href": "#process", "text": "Process" },
+      { "href": "#projects", "text": "Projects" },
+      { "href": "#contact", "text": "Contact" }
+    ]
+  },
+  "hero": {
+    "badge": "Available for freelance & long-term collaborations",
+    "title": "Backend-Focused",
+    "titleHighlight": "Laravel Engineer",
+    "subtitle": "Building scalable business systems, APIs, and digital infrastructure.",
+    "descriptionPrefix": "Backend-focused full-stack engineer specializing in scalable Laravel systems, API architecture, deployment workflows, and structured business platforms. I build production-ready applications with long-term maintainability, performance, and operational reliability in mind.",
+    "buttons": [
+      {
+        "href": "#projects",
+        "text": "See My Work",
+        "class": "btn-primary-custom"
+      },
+      {
+        "href": "#contact",
+        "text": "Contact Me",
+        "class": "btn-secondary-custom"
+      }
+    ],
+    "metrics": [
+      { "title": "Laravel", "subtitle": "Systems" },
+      { "title": "API", "subtitle": "Architecture" },
+      { "title": "AWS", "subtitle": "Deployment" },
+      { "title": "Multi-Tenant", "subtitle": "Architecture" }
+    ],
+    "doctrineTitle": "Engineering Doctrine",
+    "doctrineText": "Structure over shortcuts. Performance before decoration. Scalable architecture with calm precision.",
+    "techBadges": ["Laravel", "Angular", "TypeScript", "SEO", "Bootstrap"]
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I’m Hilal Najem — a backend-focused full-stack engineer specializing in Laravel architecture, scalable business systems, API-driven platforms, and deployment infrastructure. My work focuses on building maintainable applications with structured backend logic, operational reliability, responsive frontend systems, and long-term scalability. Beyond development, I engineer systems with performance, SEO structure, and business workflow precision in mind — creating platforms businesses can depend on operationally, not just visually.",
+    "quote": "“I don’t build websites. I build structured digital systems that businesses can rely on long-term.”",
+    "quoteBadges": [
+      "Performance‑First",
+      "Accessibility",
+      "SEO‑Ready",
+      "Scalable Architecture"
+    ]
+  },
+  "principlesSection": {
+    "title": "Engineering Principles",
+    "subtitle": "Systems are not built only for appearance. They are built for maintainability, operational clarity, scalability, and long-term reliability.",
+    "principles": [
+      {
+        "icon": "🏗",
+        "title": "Structure Before Scale",
+        "description": "Systems should remain organized, maintainable, and clear before expanding in complexity or size."
+      },
+      {
+        "icon": "⚙",
+        "title": "Operational Clarity",
+        "description": "Platforms should simplify workflows, reduce friction, and support business operations clearly."
+      },
+      {
+        "icon": "📈",
+        "title": "Long-Term Maintainability",
+        "description": "Applications are engineered with scalable architecture and future evolution in mind."
+      },
+      {
+        "icon": "⚡",
+        "title": "Performance Matters",
+        "description": "Fast-loading, optimized systems improve user experience, accessibility, and operational efficiency."
+      }
+    ]
+  },
+  "skillsSection": {
+    "title": "Systems Engineering Expertise",
+    "subtitle": "Modern full-stack development with a strong focus on Laravel systems, frontend engineering, SEO architecture, and business-driven platforms.",
+    "skills": [
+      {
+        "icon": "🛠",
+        "title": "Backend Systems",
+        "description": "Architecting scalable Laravel applications, RESTful APIs, multi-tenant systems, service-layer workflows, authentication systems, and structured business logic for production-grade platforms."
+      },
+      {
+        "icon": "🏗",
+        "title": "Business Platforms",
+        "description": "Structured websites, dashboards, operational systems, CMS platforms, and scalable business solutions."
+      },
+      {
+        "icon": "⚡",
+        "title": "Frontend Engineering",
+        "description": "Responsive UI systems using HTML5, CSS3, Bootstrap, JavaScript, Angular, and Inertia.js with React or Vue."
+      },
+      {
+        "icon": "☁",
+        "title": "Deployment & Infrastructure",
+        "description": "Deploying and maintaining Laravel applications across shared hosting and AWS environments with production-focused configuration, optimization, and operational reliability."
+      },
+      {
+        "icon": "📈",
+        "title": "SEO & Performance",
+        "description": "Structured metadata, semantic HTML, sitemap systems, schema.org integration, and speed optimization."
+      }
+    ]
+  },
+  "processSection": {
+    "title": "How I Build Systems",
+    "subtitle": "Every project follows a structured workflow focused on clarity, scalability, and operational reliability from planning to deployment.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery",
+        "description": "Understanding business workflows, operational needs, technical requirements, and long-term objectives."
+      },
+      {
+        "number": "02",
+        "title": "Architecture",
+        "description": "Planning backend structure, database relationships, scalable workflows, and system organization."
+      },
+      {
+        "number": "03",
+        "title": "Development",
+        "description": "Building APIs, backend systems, interfaces, validation logic, and responsive frontend architecture."
+      },
+      {
+        "number": "04",
+        "title": "Testing & Optimization",
+        "description": "Reviewing responsiveness, validation, SEO structure, performance, and operational reliability."
+      },
+      {
+        "number": "05",
+        "title": "Deployment & Support",
+        "description": "Production deployment, hosting configuration, maintenance, and long-term scalability support."
+      }
+    ]
+  },
+  "projectsSection": {
+    "title": "Selected Projects",
+    "subtitle": "Real-world platforms built with precision, responsive architecture, SEO readiness, and business-focused structure.",
+    "filterButtons": [
+      { "filter": "all", "text": "All" },
+      { "filter": "business", "text": "Business" },
+      { "filter": "education", "text": "Education" },
+      { "filter": "organization", "text": "Organization" }
+    ],
+    "projects": [
+      {
+        "id": "ittihad",
+        "title": "ITTIHAD Sweets & Catering",
+        "category": "business",
+        "categoryLabel": "Laravel Platform",
+        "shortDescription": "A premium Laravel-powered website developed for one of Aley’s long-standing oriental sweets brands.",
+        "description": "A premium Laravel-powered website developed for one of Aley’s long-standing oriental sweets brands. The platform was designed to combine heritage storytelling, luxury food presentation, responsive performance, and structured user experience into a modern digital identity.",
+        "image": "./assets/images/projects/ittihad.co_.png",
+        "liveUrl": "https://ittihad.co",
+        "githubUrl": null,
+        "tech": [
+          "Laravel",
+          "PHP",
+          "Bootstrap 5",
+          "JavaScript",
+          "Responsive Design",
+          "SEO Architecture",
+          "Structured Content"
+        ],
+        "features": [
+          {
+            "title": "Heritage Storytelling",
+            "description": "Digital presence that reflects premium brand identity and tradition."
+          },
+          {
+            "title": "Luxury Food Presentation",
+            "description": "Structured visual layout for high-end product showcase."
+          },
+          {
+            "title": "Performance & SEO",
+            "description": "Optimized architecture for search visibility and speed."
+          }
+        ],
+        "pages": [
+          {
+            "title": "Home",
+            "description": "Brand introduction and product highlights"
+          },
+          {
+            "title": "Products",
+            "description": "Categorized sweets and catering items"
+          },
+          {
+            "title": "Contact",
+            "description": "Business inquiry and location information"
+          }
+        ],
+        "browserUrl": "ittihad.co"
+      },
+      {
+        "id": "horecamak",
+        "title": "Horecamak",
+        "category": "business",
+        "categoryLabel": "Laravel Platform",
+        "shortDescription": "A Laravel-powered corporate procurement platform for hospitality sourcing.",
+        "description": "A Laravel-powered corporate procurement platform developed for Horecamak UAE — a hospitality-focused sourcing and trading agency. The website was engineered as a structured single-page experience combining modern corporate presentation, procurement positioning, operational clarity, and responsive business communication.",
+        "image": "assets/images/projects/horecamak.ae_.png",
+        "liveUrl": "https://horecamak.ae",
+        "githubUrl": null,
+        "tech": [
+          "Laravel",
+          "PHP",
+          "Bootstrap 5",
+          "JavaScript",
+          "Responsive Architecture",
+          "Corporate UI",
+          "SEO Structure",
+          "Single-Page Experience"
+        ],
+        "features": [
+          {
+            "title": "Corporate Presentation",
+            "description": "Professional layout for B2B procurement branding."
+          },
+          {
+            "title": "Operational Clarity",
+            "description": "Clear service and product categorization for easy navigation."
+          },
+          {
+            "title": "Responsive Communication",
+            "description": "Contact and inquiry systems optimized for business leads."
+          }
+        ],
+        "pages": [
+          {
+            "title": "Home",
+            "description": "Hero section and service overview"
+          },
+          {
+            "title": "Services",
+            "description": "Hospitality equipment procurement details"
+          },
+          { "title": "Contact", "description": "Corporate inquiry form" }
+        ],
+        "browserUrl": "horecamak.ae"
+      },
+      {
+        "id": "aley",
+        "title": "Cultural Society of Aley & Districts",
+        "category": "organization",
+        "categoryLabel": "Laravel CMS Platform",
+        "shortDescription": "A Laravel-powered multi-page community platform for cultural engagement.",
+        "description": "A Laravel-powered multi-page community platform developed for the Cultural Society of Aley & Districts. The website was engineered to support cultural engagement, community outreach, dynamic content management, event publishing, and long-term organizational communication through a structured and editor-friendly administration system.",
+        "image": "assets/images/projects/aleyanddistricts.org_.png",
+        "liveUrl": "https://aleyanddistricts.org/",
+        "githubUrl": null,
+        "tech": [
+          "Laravel",
+          "PHP",
+          "Bootstrap 5",
+          "JavaScript",
+          "CMS Architecture",
+          "CRUD System",
+          "Responsive Design",
+          "SEO Structure",
+          "Multi-Page Platform"
+        ],
+        "features": [
+          {
+            "title": "Dynamic Content Management",
+            "description": "Admin panel for events, news, and articles."
+          },
+          {
+            "title": "Community Outreach",
+            "description": "Platform for cultural announcements and engagement."
+          },
+          {
+            "title": "Editor-Friendly System",
+            "description": "Simplified content updates for non-technical staff."
+          }
+        ],
+        "pages": [
+          {
+            "title": "Home",
+            "description": "Society mission and upcoming events"
+          },
+          {
+            "title": "About",
+            "description": "History and leadership structure"
+          },
+          {
+            "title": "Events",
+            "description": "Calendar and cultural program listings"
+          },
+          { "title": "Contact", "description": "Membership and inquiry form" }
+        ],
+        "browserUrl": "aleyanddistricts.org"
+      },
+      {
+        "id": "tbilisi",
+        "title": "Tbilisi Georgia University",
+        "category": "education",
+        "categoryLabel": "Laravel Application Platform",
+        "shortDescription": "University admission platform with dynamic workflows.",
+        "description": "A Laravel-powered university admission platform developed to simplify international student applications for Georgian universities. The system combines educational presentation, dynamic admission workflows, conditional form logic, and responsive user experience into a structured two-page platform focused on student onboarding and application management.",
+        "image": "assets/images/projects/tbilisigeorgiauniversity.com_.png",
+        "liveUrl": "https://tbilisigeorgiauniversity.com/",
+        "githubUrl": null,
+        "tech": [
+          "Laravel",
+          "PHP",
+          "Bootstrap 5",
+          "JavaScript",
+          "Dynamic Forms",
+          "Conditional Logic",
+          "File Upload System",
+          "Responsive Design",
+          "SEO Structure"
+        ],
+        "features": [
+          {
+            "title": "Dynamic Admission Workflows",
+            "description": "Multi-step application with conditional fields."
+          },
+          {
+            "title": "File Upload System",
+            "description": "Secure document submission for admissions."
+          },
+          {
+            "title": "Student Onboarding",
+            "description": "Streamlined process for international applicants."
+          }
+        ],
+        "pages": [
+          {
+            "title": "Home",
+            "description": "University overview and programs"
+          },
+          {
+            "title": "Apply",
+            "description": "Conditional logic application form"
+          }
+        ],
+        "browserUrl": "tbilisigeorgiauniversity.com"
+      }
+    ]
+  },
+  "contact": {
+    "label": "SYSTEM COMMUNICATION",
+    "headline": "Reliable systems. Structured execution.",
+    "text": "Available for business platforms, Laravel systems, APIs, operational workflows, and long-term technical collaborations.",
+    "availability": "Currently available for selected projects",
+    "actions": [
+      {
+        "label": "Direct Communication",
+        "title": "WhatsApp",
+        "href": "https://wa.me/96170734797",
+        "target": "_blank"
+      },
+      {
+        "label": "Professional Contact",
+        "title": "Email",
+        "href": "mailto:hilal123work@gmail.com",
+        "target": null
+      },
+      {
+        "label": "Professional Presence",
+        "title": "LinkedIn",
+        "href": "https://www.linkedin.com/in/hilal-najem-aa4b34b5/",
+        "target": "_blank"
+      },
+      {
+        "label": "Development Workflows",
+        "title": "GitHub",
+        "href": "https://github.com/hilal-najem3",
+        "target": "_blank"
+      }
+    ]
+  },
+  "footer": {
+    "text": "© 2026 Hilal Najem. Built with precision and performance in mind.",
+    "badges": ["Laravel", "Angular", "SEO Architecture"]
+  },
+  "typingPhrases": [
+    " I craft scalable systems.",
+    " I engineer with precision.",
+    " I build performance-first platforms.",
+    " I create digital infrastructure."
+  ]
+}
