@@ -433,12 +433,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ---------- TEXT INJECTION HELPERS ----------
   function setText(id, text) {
     const el = document.getElementById(id);
-    if (el) el.textContent = text;
+
+    if (!el) return;
+
+    if (el.textContent.trim().length === 0) {
+      el.textContent = text;
+    }
   }
 
   function setHtml(id, html) {
     const el = document.getElementById(id);
-    if (el) el.innerHTML = html;
+
+    if (!el) return;
+
+    if (el.innerHTML.trim().length === 0) {
+      el.innerHTML = html;
+    }
   }
 
   // Navbar
