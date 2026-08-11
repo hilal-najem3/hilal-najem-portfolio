@@ -335,18 +335,24 @@
     </button>
     <div class="toast-container-custom" id="toastContainer"></div>
 
+    <!-- Project Case Study Modal -->
     <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
       <div
         class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable project-modal-dialog"
       >
         <div class="modal-content project-modal-content">
+          <!-- Close Button -->
           <button
             type="button"
             class="btn-close btn-close-white project-modal-close"
             data-bs-dismiss="modal"
             aria-label="Close"
           ></button>
+
           <div class="modal-body p-0">
+            <!-- =====================================================
+             PROJECT HERO / PREVIEW
+        ====================================================== -->
             <div class="project-modal-preview">
               <img
                 id="modalImage"
@@ -354,14 +360,18 @@
                 alt="Project preview"
                 class="img-fluid w-100 project-modal-image"
               />
+
               <div class="project-modal-overlay"></div>
+
               <div class="project-modal-top">
                 <div>
                   <span
                     id="modalCategory"
                     class="project-modal-category"
                   ></span>
+
                   <h2 id="projectModalLabel" class="project-modal-title"></h2>
+
                   <p
                     id="modalShortDescription"
                     class="project-modal-short-description"
@@ -369,25 +379,61 @@
                 </div>
               </div>
             </div>
+
+            <!-- =====================================================
+             PROJECT CONTENT
+        ====================================================== -->
             <div class="project-modal-body">
+              <!-- ===================================================
+               PROJECT META
+               Developer / Product Type / Current Deployment
+          ==================================================== -->
+              <div
+                id="modalProjectMeta"
+                class="project-modal-meta mb-5 d-none"
+              ></div>
+
+              <!-- ===================================================
+               TECHNOLOGIES
+          ==================================================== -->
               <div class="mb-5">
                 <h3 class="project-modal-section-title">Technologies</h3>
+
                 <div id="modalTechStack" class="d-flex flex-wrap gap-2"></div>
               </div>
+
+              <!-- ===================================================
+               PROJECT OVERVIEW
+          ==================================================== -->
               <div class="mb-5">
                 <h3 class="project-modal-section-title">Project Overview</h3>
+
                 <p id="modalDescription" class="project-modal-text"></p>
               </div>
+
+              <!-- ===================================================
+               KEY FEATURES
+          ==================================================== -->
               <div class="mb-5">
                 <h3 class="project-modal-section-title">Key Features</h3>
+
                 <div id="modalFeatures" class="row g-4"></div>
               </div>
+
+              <!-- ===================================================
+               MAIN PAGES & PURPOSE
+          ==================================================== -->
               <div class="mb-5">
                 <h3 class="project-modal-section-title">
                   Main Pages & Purpose
                 </h3>
+
                 <ul id="modalPages" class="project-modal-pages"></ul>
               </div>
+
+              <!-- ===================================================
+               PROJECT LINKS
+          ==================================================== -->
               <div class="d-flex flex-wrap gap-3 align-items-center">
                 <a
                   id="modalLiveLink"
@@ -395,16 +441,19 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn btn-primary-custom"
-                  >Visit Live Website</a
                 >
+                  Visit Live Website
+                </a>
+
                 <a
                   id="modalGithubLink"
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn btn-secondary-custom d-none"
-                  >View GitHub</a
                 >
+                  View GitHub
+                </a>
               </div>
             </div>
           </div>

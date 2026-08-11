@@ -342,6 +342,83 @@
           }
         ],
         "browserUrl": "tbilisigeorgiauniversity.com"
+      },
+      {
+        "id": "primecourse",
+        "title": "PrimeCourse",
+        "category": "education",
+        "categoryLabel": "Education Platform",
+        "developer": "PrimeCodes",
+        "productType": "Reusable Software Platform",
+        "currentDeployment": {
+          "name": "DentArtistry by Kifah",
+          "type": "Dental Education Platform",
+          "url": "https://dentartistrybykifah.com/"
+        },
+        "shortDescription": "A reusable educational platform for managing students, courses, lessons, and secure learning materials, developed by PrimeCodes.",
+        "description": "PrimeCourse is a reusable educational platform developed by PrimeCodes for organizations, training providers, and course creators who need a structured online learning system. The platform provides administration tools for managing students, courses, lessons, and protected educational documents, while students access their enrolled learning materials through a dedicated learning portal.",
+        "image": "./assets/images/projects/primecourse-student-dashboard.png",
+        "liveUrl": "https://dentartistrybykifah.com/",
+        "githubUrl": null,
+        "tech": [
+          "Laravel 12",
+          "PHP",
+          "Inertia.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "MySQL",
+          "PDF.js"
+        ],
+        "features": [
+          {
+            "title": "Student Learning Portal",
+            "description": "A dedicated student application where learners can access their enrolled courses, lessons, and learning materials."
+          },
+          {
+            "title": "Course Management",
+            "description": "Administrative tools for creating and managing courses, lessons, and educational content."
+          },
+          {
+            "title": "Student Management",
+            "description": "Centralized management of student accounts and their access to educational content."
+          },
+          {
+            "title": "Secure Document Viewer",
+            "description": "Protected browser-based document viewing with watermarking and PDF.js segmentation for controlled access to learning materials."
+          }
+        ],
+        "pages": [
+          {
+            "title": "Student Dashboard",
+            "description": "Personalized learning dashboard showing enrolled courses and continuing-learning information."
+          },
+          {
+            "title": "Course Pages",
+            "description": "Course experience organizing lessons and course-specific learning documents."
+          },
+          {
+            "title": "Lesson Experience",
+            "description": "Lesson-based learning flow providing access to protected educational materials."
+          },
+          {
+            "title": "Secure PDF Viewer",
+            "description": "Protected browser-based document experience using PDF.js segmentation and watermarks."
+          },
+          {
+            "title": "Admin Dashboard",
+            "description": "Centralized administration interface for managing the educational platform."
+          },
+          {
+            "title": "Student Management",
+            "description": "Administrative workflows for creating and managing student accounts."
+          },
+          {
+            "title": "Course Management",
+            "description": "Administrative workflows for creating courses, lessons, and associated learning resources."
+          }
+        ],
+        "browserUrl": "dentartistrybykifah.com"
       }
     ]
   },

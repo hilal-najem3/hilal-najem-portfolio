@@ -4,35 +4,25 @@ document.addEventListener("DOMContentLoaded", async () => {
    * PORTFOLIO APPLICATION
    * =========================================================
    *
-   * HTML contains complete fallback content.
+   * Local:
+   *   content.js is used as the fallback source.
    *
-   * When served over HTTP/HTTPS:
-   *   - content.json is loaded
-   *   - HTML content is refreshed from JSON
+   * Online:
+   *   content.json is loaded and replaces the fallback data.
    *
-   * When opened locally via file://:
-   *   - JSON loading is skipped because browsers restrict
-   *     fetch() from local files
-   *   - the HTML fallback remains visible
-   *   - all JavaScript functionality still works
+   * This allows the HTML to remain usable when index.html
+   * is opened directly using file:// while keeping JSON as
+   * the online content source.
    */
 
   let content = window.portfolioContent || null;
 
   /*
-   * ---------------------------------------------------------
-   * Load content
-   * ---------------------------------------------------------
-   *
-   * content.js provides the initial content.
-   *
-   * This works when index.html is opened directly using file://
-   * because JavaScript files can be loaded normally.
-   *
-   * When running online over HTTP/HTTPS, content.json is also
-   * fetched so the JSON remains the source for future dynamic
-   * content/language updates.
+   * =========================================================
+   * LOAD CONTENT
+   * =========================================================
    */
+
   if (window.location.protocol !== "file:") {
     try {
       const response = await fetch("./assets/json/content.json", {
@@ -243,7 +233,6 @@ document.addEventListener("DOMContentLoaded", async () => {
      */
 
     setText("principlesTitle", content.principlesSection.title);
-
     setText("principlesSubtitle", content.principlesSection.subtitle);
 
     const principlesContainer = document.getElementById("principlesContainer");
@@ -253,7 +242,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         .map(
           (principle) => `
               <div class="col-md-6 col-xl-3 fade-up">
+
                 <article class="glass-card principle-card h-100">
+
                   <div class="principle-icon">
                     ${principle.icon}
                   </div>
@@ -265,7 +256,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                   <p class="principle-description">
                     ${principle.description}
                   </p>
+
                 </article>
+
               </div>
             `,
         )
@@ -288,7 +281,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         .map(
           (skill) => `
             <div class="col-md-6 col-xl-3 fade-up">
+
               <article class="glass-card skill-card h-100">
+
                 <div class="skill-icon">
                   ${skill.icon}
                 </div>
@@ -300,7 +295,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p class="text-secondary">
                   ${skill.description}
                 </p>
+
               </article>
+
             </div>
           `,
         )
@@ -314,7 +311,6 @@ document.addEventListener("DOMContentLoaded", async () => {
      */
 
     setText("processTitle", content.processSection.title);
-
     setText("processSubtitle", content.processSection.subtitle);
 
     const processContainer = document.getElementById("processContainer");
@@ -324,11 +320,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         .map(
           (step) => `
             <div class="process-item fade-up">
+
               <div class="process-number">
                 ${step.number}
               </div>
 
               <div class="glass-card process-card">
+
                 <h3 class="process-title">
                   ${step.title}
                 </h3>
@@ -336,7 +334,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <p class="process-description">
                   ${step.description}
                 </p>
+
               </div>
+
             </div>
           `,
         )
@@ -345,12 +345,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     /*
      * -------------------------------------------------------
-     * Projects section
+     * Projects section headers
      * -------------------------------------------------------
      */
 
     setText("projectsTitle", content.projectsSection.title);
-
     setText("projectsSubtitle", content.projectsSection.subtitle);
 
     const filterContainer = document.getElementById("filterButtonsContainer");
@@ -400,7 +399,9 @@ document.addEventListener("DOMContentLoaded", async () => {
               ${action.target ? 'rel="noopener noreferrer"' : ""}
               class="contact-action"
             >
+
               <div>
+
                 <span class="contact-action-label">
                   ${action.label}
                 </span>
@@ -408,11 +409,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <h3>
                   ${action.title}
                 </h3>
+
               </div>
 
               <span class="contact-arrow">
                 ↗
               </span>
+
             </a>
           `,
         )
@@ -469,17 +472,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         : projects.filter((project) => project.category === filter);
 
     /*
-     * No projects for the selected filter.
-     * Keep the UI usable instead of showing a blank screen.
+     * No projects for selected filter.
      */
+
     if (filteredProjects.length === 0) {
       container.innerHTML = `
         <div class="col-12">
+
           <div class="glass-card p-5 text-center">
+
             <p class="text-secondary mb-0">
               No projects found in this category.
             </p>
+
           </div>
+
         </div>
       `;
 
@@ -493,15 +500,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             class="col-lg-6 fade-up project-item"
             data-category="${project.category}"
           >
+
             <article class="glass-card project-card h-100">
 
+              <!-- Website Preview -->
               <div class="website-preview-wrapper mb-4">
 
                 <div
                   class="browser-frame"
                   tabindex="0"
                   role="img"
-                  aria-label="Preview of ${project.browserUrl}"
+                  aria-label="Preview of ${project.browserUrl || project.title}"
                 >
 
                   <div class="browser-topbar">
@@ -513,7 +522,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     </div>
 
                     <div class="browser-url">
-                      ${project.browserUrl}
+                      ${project.browserUrl || project.title}
                     </div>
 
                   </div>
@@ -533,15 +542,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
               </div>
 
+              <!-- Project Content -->
               <div class="project-content">
 
                 <div
-                  class="d-flex
-                         align-items-center
-                         justify-content-between
-                         flex-wrap
-                         gap-3
-                         mb-3"
+                  class="
+                    d-flex
+                    align-items-center
+                    justify-content-between
+                    flex-wrap
+                    gap-3
+                    mb-3
+                  "
                 >
 
                   <h3 class="project-title mb-0">
@@ -558,7 +570,79 @@ document.addEventListener("DOMContentLoaded", async () => {
                   ${project.shortDescription}
                 </p>
 
+                <!-- Project Metadata -->
+                <!-- ${
+                  project.developer || project.productType
+                    ? `
+                      <div class="project-meta mb-4">
+
+                        ${
+                          project.developer
+                            ? `
+                              <div class="project-meta-item">
+
+                                <span class="project-meta-label">
+                                  Developed by
+                                </span>
+
+                                <strong class="project-meta-value">
+                                  ${project.developer}
+                                </strong>
+
+                              </div>
+                            `
+                            : ""
+                        }
+
+                        ${
+                          project.productType
+                            ? `
+                              <div class="project-meta-item">
+
+                                <span class="project-meta-label">
+                                  Product Type
+                                </span>
+
+                                <strong class="project-meta-value">
+                                  ${project.productType}
+                                </strong>
+
+                              </div>
+                            `
+                            : ""
+                        }
+
+                      </div>
+                    `
+                    : ""
+                } -->
+
+                <!-- Current Deployment -->
+                ${
+                  project.currentDeployment
+                    ? `
+                      <div class="project-deployment mb-4">
+
+                        <span class="project-meta-label">
+                          Current Deployment
+                        </span>
+
+                        <div class="project-deployment-name">
+                          ${project.currentDeployment.name}
+                        </div>
+
+                        <div class="project-deployment-type">
+                          ${project.currentDeployment.type}
+                        </div>
+
+                      </div>
+                    `
+                    : ""
+                }
+
+                <!-- Technologies -->
                 <div class="mb-4">
+
                   ${project.tech
                     .map(
                       (technology) => `
@@ -568,18 +652,41 @@ document.addEventListener("DOMContentLoaded", async () => {
                       `,
                     )
                     .join("")}
+
                 </div>
 
+                <!-- Links -->
                 <div class="project-links">
 
-                  <a
-                    href="${project.liveUrl}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-primary-custom"
-                  >
-                    Visit Live Website
-                  </a>
+                  ${
+                    project.liveUrl
+                      ? `
+                        <a
+                          href="${project.liveUrl}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="btn btn-primary-custom"
+                        >
+                          Visit Live Website
+                        </a>
+                      `
+                      : ""
+                  }
+
+                  ${
+                    project.currentDeployment?.url
+                      ? `
+                        <a
+                          href="${project.currentDeployment.url}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="btn btn-primary-custom"
+                        >
+                          View Deployment
+                        </a>
+                      `
+                      : ""
+                  }
 
                   <button
                     type="button"
@@ -594,6 +701,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               </div>
 
             </article>
+
           </div>
         `,
       )
@@ -602,9 +710,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     /*
      * Reinitialize functionality for newly rendered cards.
      */
+
     initWebsitePreviews();
     initFadeUpAnimation();
   }
+
+  /*
+   * =========================================================
+   * PROJECT FILTER
+   * =========================================================
+   */
 
   function initProjectFilter() {
     const filterContainer = document.getElementById("filterButtonsContainer");
@@ -614,9 +729,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     /*
-     * Event delegation means this continues working even
-     * when project content is dynamically re-rendered.
+     * Event delegation keeps filtering working after
+     * projects are dynamically re-rendered.
      */
+
     filterContainer.addEventListener("click", (event) => {
       const button = event.target.closest(".filter-btn");
 
@@ -651,6 +767,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     projectModal = new bootstrap.Modal(modalElement);
 
+    /*
+     * Event delegation for project buttons.
+     */
+
     document.addEventListener("click", (event) => {
       const button = event.target.closest("[data-project-id]");
 
@@ -669,20 +789,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!project) {
       showToast("Project details are unavailable.");
+
       return;
     }
 
     const modalImage = document.getElementById("modalImage");
-
-    const modalTitle = document.getElementById("projectModalLabel");
-
-    const modalCategory = document.getElementById("modalCategory");
-
-    const modalShortDescription = document.getElementById(
-      "modalShortDescription",
-    );
-
-    const modalDescription = document.getElementById("modalDescription");
 
     const modalTechStack = document.getElementById("modalTechStack");
 
@@ -690,14 +801,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const modalPages = document.getElementById("modalPages");
 
+    const modalProjectMeta = document.getElementById("modalProjectMeta");
+
     const liveLink = document.getElementById("modalLiveLink");
 
     const githubLink = document.getElementById("modalGithubLink");
+
+    /*
+     * -------------------------------------------------------
+     * Image
+     * -------------------------------------------------------
+     */
 
     if (modalImage) {
       modalImage.src = project.image;
       modalImage.alt = project.title;
     }
+
+    /*
+     * -------------------------------------------------------
+     * Main information
+     * -------------------------------------------------------
+     */
 
     setText("projectModalLabel", project.title);
 
@@ -707,57 +832,182 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     setText("modalDescription", project.description);
 
+    /*
+     * -------------------------------------------------------
+     * Project Metadata
+     * -------------------------------------------------------
+     */
+
+    // if (modalProjectMeta) {
+    //   const hasMetadata =
+    //     project.developer || project.productType || project.currentDeployment;
+
+    //   if (!hasMetadata) {
+    //     modalProjectMeta.innerHTML = "";
+    //     modalProjectMeta.classList.add("d-none");
+    //   } else {
+    //     modalProjectMeta.classList.remove("d-none");
+
+    //     modalProjectMeta.innerHTML = `
+    //       <div class="row g-3">
+
+    //         ${
+    //           project.developer
+    //             ? `
+    //               <div class="col-md-6">
+
+    //                 <div class="project-meta-card">
+
+    //                   <span class="project-meta-label">
+    //                     Developed by
+    //                   </span>
+
+    //                   <strong class="project-meta-value">
+    //                     ${project.developer}
+    //                   </strong>
+
+    //                 </div>
+
+    //               </div>
+    //             `
+    //             : ""
+    //         }
+
+    //         ${
+    //           project.productType
+    //             ? `
+    //               <div class="col-md-6">
+
+    //                 <div class="project-meta-card">
+
+    //                   <span class="project-meta-label">
+    //                     Product Type
+    //                   </span>
+
+    //                   <strong class="project-meta-value">
+    //                     ${project.productType}
+    //                   </strong>
+
+    //                 </div>
+
+    //               </div>
+    //             `
+    //             : ""
+    //         }
+
+    //         ${
+    //           project.currentDeployment
+    //             ? `
+    //               <div class="col-12">
+
+    //                 <div class="project-meta-card">
+
+    //                   <span class="project-meta-label">
+    //                     Current Deployment
+    //                   </span>
+
+    //                   <strong class="project-meta-value">
+    //                     ${project.currentDeployment.name}
+    //                   </strong>
+
+    //                   <span class="project-meta-secondary">
+    //                     ${project.currentDeployment.type}
+    //                   </span>
+
+    //                 </div>
+
+    //               </div>
+    //             `
+    //             : ""
+    //         }
+
+    //       </div>
+    //     `;
+    //   }
+    // }
+
+    /*
+     * -------------------------------------------------------
+     * Technologies
+     * -------------------------------------------------------
+     */
+
     if (modalTechStack) {
-      modalTechStack.innerHTML = project.tech
+      modalTechStack.innerHTML = (project.tech || [])
         .map(
           (technology) => `
-            <span class="tech-badge">
-              ${technology}
-            </span>
-          `,
+              <span class="tech-badge">
+                ${technology}
+              </span>
+            `,
         )
         .join("");
     }
+
+    /*
+     * -------------------------------------------------------
+     * Features
+     * -------------------------------------------------------
+     */
 
     if (modalFeatures) {
-      modalFeatures.innerHTML = project.features
+      modalFeatures.innerHTML = (project.features || [])
         .map(
           (feature) => `
-            <div class="col-md-6">
-              <div class="project-feature-card">
-                <h4>
-                  ${feature.title}
-                </h4>
+              <div class="col-md-6">
 
-                <p>
-                  ${feature.description}
-                </p>
+                <div class="project-feature-card">
+
+                  <h4>
+                    ${feature.title}
+                  </h4>
+
+                  <p>
+                    ${feature.description}
+                  </p>
+
+                </div>
+
               </div>
-            </div>
-          `,
+            `,
         )
         .join("");
     }
+
+    /*
+     * -------------------------------------------------------
+     * Pages
+     * -------------------------------------------------------
+     */
 
     if (modalPages) {
-      modalPages.innerHTML = project.pages
+      modalPages.innerHTML = (project.pages || [])
         .map(
           (page) => `
-            <li>
-              <strong>
-                ${page.title}:
-              </strong>
+              <li>
 
-              ${page.description}
-            </li>
-          `,
+                <strong>
+                  ${page.title}:
+                </strong>
+
+                ${page.description}
+
+              </li>
+            `,
         )
         .join("");
     }
+
+    /*
+     * -------------------------------------------------------
+     * Live Website
+     * -------------------------------------------------------
+     */
 
     if (liveLink) {
       if (project.liveUrl) {
         liveLink.href = project.liveUrl;
+        liveLink.textContent = "Visit Live Website";
         liveLink.classList.remove("d-none");
       } else {
         liveLink.href = "#";
@@ -765,15 +1015,49 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
 
+    /*
+     * -------------------------------------------------------
+     * Current Deployment
+     * -------------------------------------------------------
+     */
+
+    /*
+     * We use the existing live-link button for a real
+     * deployment when the project itself has no separate
+     * live URL.
+     */
+
+    if (liveLink && !project.liveUrl && project.currentDeployment?.url) {
+      liveLink.href = project.currentDeployment.url;
+
+      liveLink.textContent = "View Deployment";
+
+      liveLink.classList.remove("d-none");
+    }
+
+    /*
+     * -------------------------------------------------------
+     * GitHub
+     * -------------------------------------------------------
+     */
+
     if (githubLink) {
       if (project.githubUrl) {
         githubLink.href = project.githubUrl;
+
         githubLink.classList.remove("d-none");
       } else {
         githubLink.href = "#";
+
         githubLink.classList.add("d-none");
       }
     }
+
+    /*
+     * -------------------------------------------------------
+     * Show modal
+     * -------------------------------------------------------
+     */
 
     if (projectModal) {
       projectModal.show();
@@ -781,8 +1065,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   /*
-   * Keep this globally available for compatibility.
+   * Keep globally available.
    */
+
   window.openProjectModal = openProjectModal;
 
   /*
@@ -870,6 +1155,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
+
             observer.unobserve(entry.target);
           }
         });
@@ -1073,6 +1359,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const toast = document.createElement("div");
 
     toast.className = "custom-toast";
+
     toast.textContent = message;
 
     container.appendChild(toast);
@@ -1089,17 +1376,19 @@ document.addEventListener("DOMContentLoaded", async () => {
    */
 
   /*
-   * Render JSON content only when successfully loaded.
-   * Otherwise HTML remains untouched.
+   * Load content into the page when JSON/content.js
+   * data is available.
    */
+
   renderContent();
 
   /*
-   * Projects need to be rendered after content is available.
+   * Render projects only when content is available.
    *
-   * This is the important part of the filter fix:
-   * there is now ONLY ONE project rendering system.
+   * This is the single project rendering system.
+   * It is also what keeps the filters working correctly.
    */
+
   if (content) {
     renderProjects();
   }

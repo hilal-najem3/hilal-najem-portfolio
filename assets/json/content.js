@@ -394,6 +394,98 @@ window.portfolioContent = {
         ],
         browserUrl: "tbilisigeorgiauniversity.com",
       },
+
+      {
+        id: "primecourse",
+        title: "PrimeCourse",
+        category: "education",
+        categoryLabel: "Educational Platform",
+        developer: "PrimeCodes",
+        productType: "Reusable Software Platform",
+        currentDeployment: {
+          name: "DentArtistry by Kifah",
+          type: "Dental Education Platform",
+          url: "https://dentartistrybykifah.com/",
+        },
+        shortDescription:
+          "A reusable educational platform for managing students, courses, lessons, and secure learning materials, developed by PrimeCodes.",
+        description:
+          "PrimeCourse is a reusable educational platform developed by PrimeCodes for organizations, training providers, and course creators who need a structured online learning system. The platform provides administration tools for managing students, courses, lessons, and protected educational documents, while students access their enrolled learning materials through a dedicated learning portal.",
+        image: "assets/images/projects/primecourse-student-dashboard.png",
+        liveUrl: null,
+        githubUrl: null,
+        tech: [
+          "Laravel 12",
+          "PHP",
+          "Inertia.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "MySQL",
+          "PDF.js",
+          "Secure Document Viewer",
+        ],
+        features: [
+          {
+            title: "Student Learning Portal",
+            description:
+              "A dedicated student application where learners can access their enrolled courses, lessons, and learning materials.",
+          },
+          {
+            title: "Course Management",
+            description:
+              "Administrative tools for creating and managing courses, lessons, and educational content.",
+          },
+          {
+            title: "Student Management",
+            description:
+              "Centralized management of student accounts and their access to educational content.",
+          },
+          {
+            title: "Secure Document Viewer",
+            description:
+              "Protected browser-based document viewing with watermarking and PDF.js segmentation for controlled access to learning materials.",
+          },
+        ],
+        pages: [
+          {
+            title: "Admin Dashboard",
+            description:
+              "Central administration interface for managing the educational platform.",
+          },
+          {
+            title: "Student Management",
+            description:
+              "Manage registered students and their access to the platform.",
+          },
+          {
+            title: "Course Management",
+            description:
+              "Create and organize courses, lessons, and learning resources.",
+          },
+          {
+            title: "Student Dashboard",
+            description:
+              "Personalized learning environment where students access their enrolled courses.",
+          },
+          {
+            title: "Course & Lesson View",
+            description:
+              "Students browse course lessons and access their protected learning materials.",
+          },
+          {
+            title: "Secure Document Viewer",
+            description:
+              "Protected PDF reading experience for educational documents.",
+          },
+        ],
+        browserUrl: null,
+        gallery: [
+          "assets/images/projects/primecourse-student-dashboard.png",
+          "assets/images/projects/primecourse-course.png",
+          "assets/images/projects/primecourse-admin-dashboard.png",
+        ],
+      },
     ],
   },
 
